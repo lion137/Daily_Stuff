@@ -1,2 +1,2 @@
 # Daily_Stuff
-This is my plan, make a simple notebook of daily (if possible) works from this repo. 
+The plan, make this repo a simple notebook of daily (if possible) programming works . 
