@@ -1,0 +1,1551 @@
+>> diplay(1)
+error: 'diplay' undefined near line 1 column 1
+>> # ; - semicolon spress output
+>> a = 9
+a =  9
+>> a = 9;
+>> display a
+a
+
+>> a == 3
+ans = 0
+>> # logical returns 0 or 1
+>> a == 9
+ans =  1
+>> pi
+ans =  3.1416
+>> long pi
+error: 'long' undefined near line 1 column 1
+>> 0.000001 * 0.0009
+ans =    9.0000e-10
+>> a = pi
+a =  3.1416
+>> disp(sprintf ('6 decimals: %0.6f', a))
+6 decimals: 3.141593
+>> disp(sprintf ('6 decimals: %0.9f', a))
+6 decimals: 3.141592654
+>> disp(sprintf ('6 decimals: %0.23f', a))
+6 decimals: 3.14159265358979311599796
+>> disp(sprintf ('6 decimals: %0.40f', a))
+6 decimals: 3.1415926535897931159979634685441851615906
+>> s = 3.;14159265358979323846264338327950288419716939937510582
+ans =    1.4159e+52
+>> s = 3.;14159265358979323846264338327950288419716939937510582;
+>> disp(sprintf ('6 decimals: %0.53f', a))
+6 decimals: 3.14159265358979311599796346854418516159057617187500000
+>> format long
+>> a
+a =  3.14159265358979
+>> s
+s =  3
+>> s = 3.14159265358979323846264338327950288419716939937510582;
+>> s
+s =  3.14159265358979
+>> format short
+>> s
+s =  3.1416
+>> # format long or short formating output
+>> A = [1 2; 3 4; 5 6]
+A =
+
+   1   2
+   3   4
+   5   6
+
+>> A = [1 2; 3 4; 5 6]; # between semicols separated rows 
+>> A = [1 2; 3 4; 5 6]; # between semicols separated rows A[3,2]
+>> v = [1 2 3] # row vector - V[1,3] matrix one by 3 matrix
+v =
+
+   1   2   3
+
+>> #but
+>> v[1;2;3]
+parse error:
+
+  syntax error
+
+>>> v[1;2;3]
+     ^
+
+>> v = [1;2;3]
+v =
+
+   1
+   2
+   3
+
+>> v = [1;2;3];# v is 3 by one matrix column vector
+>> v = 0:0.1:1
+v =
+
+ Columns 1 through 7:
+
+    0.00000    0.10000    0.20000    0.30000    0.40000    0.50000    0.60000
+
+ Columns 8 through 11:
+
+    0.70000    0.80000    0.90000    1.00000
+
+>> v = 0:0.1:1; # something like a range start:step:end
+>> v = 0:0.1:1; # something like a range start:step:end one by 11 matrix default step is one
+>> ones(3,3)
+ans =
+
+   1   1   1
+   1   1   1
+   1   1   1
+
+>> r = rand(1,3)
+r =
+
+   0.26501   0.45566   0.33360
+
+>> r = rand(1,3)# random numbers matrix
+r =
+
+   0.40548   0.47640   0.11724
+
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> w = -6 + sqrt(10) * randn(1, 100000);
+>> hist(w) # histogram w
+>> hist(w, 50) # histogram w 50 means more dense chart
+>> w1 = randn(1,1000000);
+>> hist(w1)
+>> eye(5)
+ans =
+
+Diagonal Matrix
+
+   1   0   0   0   0
+   0   1   0   0   0
+   0   0   1   0   0
+   0   0   0   1   0
+   0   0   0   0   1
+
+>> eye(5) # indentity matrix
+ans =
+
+Diagonal Matrix
+
+   1   0   0   0   0
+   0   1   0   0   0
+   0   0   1   0   0
+   0   0   0   1   0
+   0   0   0   0   1
+
+>> eye(5); # indentity matrix
+>> help # help
+
+  For help with individual commands and functions type
+
+    help NAME
+
+  (replace NAME with the name of the command or function you would
+  like to learn more about).
+
+  For a more detailed introduction to GNU Octave, please consult the
+  manual.  To read the manual from the prompt type
+
+    doc
+
+  GNU Octave is supported and developed by its user community.
+  For more information visit http://www.octave.org.
+
+>> help eye
+'eye' is a built-in function from the file libinterp/corefcn/data.cc
+
+ -- Built-in Function: eye (N)
+ -- Built-in Function: eye (M, N)
+ -- Built-in Function: eye ([M N])
+ -- Built-in Function: eye (..., CLASS)
+     Return an identity matrix.
+
+     If invoked with a single scalar argument N, return a square NxN
+     identity matrix.
+
+     If supplied two scalar arguments (M, N), 'eye' takes them to be the
+     number of rows and columns.  If given a vector with two elements,
+     'eye' uses the values of the elements as the number of rows and
+     columns, respectively.  For example:
+
+          eye (3)
+           =>  1  0  0
+               0  1  0
+               0  0  1
+
+     The following expressions all produce the same result:
+
+          eye (2)
+          ==
+          eye (2, 2)
+          ==
+          eye (size ([1, 2; 3, 4]))
+
+     The optional argument CLASS, allows 'eye' to return an array of the
+     specified type, like
+
+          val = zeros (n,m, "uint8")
+
+     Calling 'eye' with no arguments is equivalent to calling it with an
+     argument of 1.  Any negative dimensions are treated as zero.  These
+     odd definitions are for compatibility with MATLAB.
+
+     See also: speye, ones, zeros.
+
+Additional help for built-in functions and operators is
+available in the online version of the manual.  Use the command
+'doc <topic>' to search the manual index.
+
+Help and information about Octave is also available on the WWW
+at http://www.octave.org and via the help@octave.org
+mailing list.
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> v = [1, 2, 3]
+v =
+
+   1   2   3
+
+>> u = [1 2 3]
+u =
+
+   1   2   3
+
+>> v * u
+error: operator *: nonconformant arguments (op1 is 1x3, op2 is 1x3)
+>> v * u'
+ans =  14
+>> v' * u
+ans =
+
+   1   2   3
+   2   4   6
+   3   6   9
+
+>> type(v)
+error: type: input arguments must be strings
+error: called from
+    type at line 40 column 5
+>> help type
+'type' is a function from the file /usr/share/octave/4.0.0/m/help/type.m
+
+ -- Command: type NAME ...
+ -- Command: type -q NAME ...
+ -- Function File: text = type ("NAME", ...)
+     Display the contents of NAME which may be a file, function
+     (m-file), variable, operator, or keyword.
+
+     'type' normally prepends a header line describing the category of
+     NAME such as function or variable; The '-q' option suppresses this
+     behavior.
+
+     If no output variable is used the contents are displayed on screen.
+     Otherwise, a cell array of strings is returned, where each element
+     corresponds to the contents of each requested function.
+
+Additional help for built-in functions and operators is
+available in the online version of the manual.  Use the command
+'doc <topic>' to search the manual index.
+
+Help and information about Octave is also available on the WWW
+at http://www.octave.org and via the help@octave.org
+mailing list.
+>> type('v')
+v is a variable
+   1   2   3
+
+>> type('v'')
+error: unterminated character string constant
+parse error:
+
+  syntax error
+
+>>> type('v'')
+             ^
+
+>> type('v''')
+error: unterminated character string constant
+error: called from
+    type at line 60 column 7
+parse error:
+
+  syntax error
+
+>>> exist ('v'')
+               ^
+
+>> 
+>> 
+>> 
+>> v' * u
+ans =
+
+   1   2   3
+   2   4   6
+   3   6   9
+
+>> v'
+ans =
+
+   1
+   2
+   3
+
+>> u
+u =
+
+   1   2   3
+
+>> v dot u
+parse error:
+
+  syntax error
+
+>>> v dot u
+        ^
+
+>> v dot(u)
+parse error:
+
+  syntax error
+
+>>> v dot(u)
+        ^
+
+>> dot(u,v)
+ans =  14
+>> dot(u,v) # scalar mult
+ans =  14
+>> A
+A =
+
+   1   2
+   3   4
+   5   6
+
+>> size(A)
+ans =
+
+   3   2
+
+>> size(size(A))
+ans =
+
+   1   2
+
+>> size(size(size(A)))
+ans =
+
+   1   2
+
+>> size(A, 1)
+ans =  3
+>> size(A,2)
+ans =  2
+>> length A
+ans =  1
+>> A
+A =
+
+   1   2
+   3   4
+   5   6
+
+>> length(A)
+ans =  3
+>> length A; # what is this???
+>> length(A); # gives length (lngest dim if matrix suplied)
+>> 
+>> 
+>> 
+>> 
+>> pwd
+ans = /home/lion/projects/python/ml_coursera/octave
+>> ls
+diary
+>> load ex1data1.txt 
+>> load ex1data1.txt; # loads a file
+>> who
+Variables in the current scope:
+
+A         a         ans       ex1data1  r         s         u         v         w         w1
+
+>> ex1data1.txt 
+error: matrix cannot be indexed with .
+>> ex1data1
+ex1data1 =
+
+    6.11010   17.59200
+    5.52770    9.13020
+    8.51860   13.66200
+    7.00320   11.85400
+    5.85980    6.82330
+    8.38290   11.88600
+    7.47640    4.34830
+    8.57810   12.00000
+    6.48620    6.59870
+    5.05460    3.81660
+    5.71070    3.25220
+   14.16400   15.50500
+    5.73400    3.15510
+    8.40840    7.22580
+    5.64070    0.71618
+    5.37940    3.51290
+    6.36540    5.30480
+    5.13010    0.56077
+    6.42960    3.65180
+    7.07080    5.38930
+    6.18910    3.13860
+   20.27000   21.76700
+    5.49010    4.26300
+    6.32610    5.18750
+    5.56490    3.08250
+   18.94500   22.63800
+   12.82800   13.50100
+   10.95700    7.04670
+   13.17600   14.69200
+   22.20300   24.14700
+    5.25240   -1.22000
+    6.58940    5.99660
+    9.24820   12.13400
+    5.89180    1.84950
+    8.21110    6.54260
+    7.93340    4.56230
+    8.09590    4.11640
+    5.60630    3.39280
+   12.83600   10.11700
+    6.35340    5.49740
+    5.40690    0.55657
+    6.88250    3.91150
+   11.70800    5.38540
+    5.77370    2.44060
+    7.82470    6.73180
+    7.09310    1.04630
+    5.07020    5.13370
+    5.80140    1.84400
+   11.70000    8.00430
+    5.54160    1.01790
+    7.54020    6.75040
+    5.30770    1.83960
+    7.42390    4.28850
+    7.60310    4.99810
+    6.33280    1.42330
+    6.35890   -1.42110
+    6.27420    2.47560
+    5.63970    4.60420
+    9.31020    3.96240
+    9.45360    5.41410
+    8.82540    5.16940
+    5.17930   -0.74279
+   21.27900   17.92900
+   14.90800   12.05400
+   18.95900   17.05400
+    7.21820    4.88520
+    8.29510    5.74420
+   10.23600    7.77540
+    5.49940    1.01730
+   20.34100   20.99200
+   10.13600    6.67990
+    7.33450    4.02590
+    6.00620    1.27840
+    7.22590    3.34110
+    5.02690   -2.68070
+    6.54790    0.29678
+    7.53860    3.88450
+    5.03650    5.70140
+   10.27400    6.75260
+    5.10770    2.05760
+    5.72920    0.47953
+    5.18840    0.20421
+    6.35570    0.67861
+    9.76870    7.54350
+    6.51590    5.34360
+    8.51720    4.24150
+    9.18020    6.79810
+    6.00200    0.92695
+    5.52040    0.15200
+    5.05940    2.82140
+    5.70770    1.84510
+    7.63660    4.29590
+    5.87070    7.20290
+    5.30540    1.98690
+    8.29340    0.14454
+   13.39400    9.05510
+    5.43690    0.61705
+
+>> size(ex1data1)
+ans =
+
+   97    2
+
+>> size(ex1data1); # such file is a matrix with size 97 by 2 97 rows 2 columns
+>> whos
+Variables in the current scope:
+
+   Attr Name          Size                     Bytes  Class
+   ==== ====          ====                     =====  ===== 
+        A             3x2                         48  double
+        a             1x1                          8  double
+        ans           1x2                         16  double
+        ex1data1     97x2                       1552  double
+        r             1x3                         24  double
+        s             1x1                          8  double
+        u             1x3                         24  double
+        v             1x3                         24  double
+        w             1x100000                800000  double
+        w1            1x1000000              8000000  double
+
+Total is 1100213 elements using 8801704 bytes
+
+>> whos # detailed view of variables
+Variables in the current scope:
+
+   Attr Name          Size                     Bytes  Class
+   ==== ====          ====                     =====  ===== 
+        A             3x2                         48  double
+        a             1x1                          8  double
+        ans           1x2                         16  double
+        ex1data1     97x2                       1552  double
+        r             1x3                         24  double
+        s             1x1                          8  double
+        u             1x3                         24  double
+        v             1x3                         24  double
+        w             1x100000                800000  double
+        w1            1x1000000              8000000  double
+
+Total is 1100213 elements using 8801704 bytes
+
+>> clear ex1data1
+>> whos
+Variables in the current scope:
+
+   Attr Name        Size                     Bytes  Class
+   ==== ====        ====                     =====  ===== 
+        A           3x2                         48  double
+        a           1x1                          8  double
+        ans         1x2                         16  double
+        r           1x3                         24  double
+        s           1x1                          8  double
+        u           1x3                         24  double
+        v           1x3                         24  double
+        w           1x100000                800000  double
+        w1          1x1000000              8000000  double
+
+Total is 1100019 elements using 8800152 bytes
+
+>> clear ex1data1 # clears var form env
+>> load ex1data1.txt; # loads a file
+>> v = ex1data1(1:10)
+v =
+
+   6.1101   5.5277   8.5186   7.0032   5.8598   8.3829   7.4764   8.5781   6.4862   5.0546
+
+>> v = ex1data1(1:10); # slicing this gives first 10 elemnts
+>> v1 = ex1data1(10:1)
+v1 = [](1x0)
+>> v1 = ex1data1(10:)
+parse error:
+
+  syntax error
+
+>>> v1 = ex1data1(10:)
+                     ^
+
+>> v1 = ex1data1(10:2)
+v1 = [](1x0)
+>> v1 = [1 2 3 4 5]
+v1 =
+
+   1   2   3   4   5
+
+>> v2 = v1(2:4)
+v2 =
+
+   2   3   4
+
+>> v2 = v1(1)
+v2 =  1
+>> v2 = v1(-1)
+error: subscript indices must be either positive integers less than 2^31 or logicals
+>> save v1, v2 first.mat
+parse error:
+
+  syntax error
+
+>>> save v1, v2 first.mat
+                     ^
+
+>> save v1 first.mat
+warning: save: no such variable 'first.mat'
+>> save first.mat v, v1
+v1 =
+
+   1   2   3   4   5
+
+>> cat first.mat 
+error: invalid conversion from string to real scalar
+error: octave_base_value::int_value (): wrong type argument 'sq_string'
+error: cat: DIM must be an integer
+>> save first.mat v
+>> cat first.mat 
+error: invalid conversion from string to real scalar
+error: octave_base_value::int_value (): wrong type argument 'sq_string'
+error: cat: DIM must be an integer
+>> cat first.mat ; # saves the variable to a file
+error: invalid conversion from string to real scalar
+error: octave_base_value::int_value (): wrong type argument 'sq_string'
+error: cat: DIM must be an integer
+>> save first.mat v # saves a value to current dir
+>> clear # without par clears all
+>> who
+>> v = [1, 2 ,3, 4]
+v =
+
+   1   2   3   4
+
+>> save first.txt v -ascii % save as a text
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> A = [1 2; 3 4; 5 6]
+A =
+
+   1   2
+   3   4
+   5   6
+
+>> A(2,2)
+ans =  4
+>> A(2,4)
+error: A(I,J): column index out of bounds; value 4 out of bound 2
+>> A(2,2) % indexing to position 2, 2
+ans =  4
+>> A(2,:)
+ans =
+
+   3   4
+
+>> A(2,:) # colon similar like i python:)
+ans =
+
+   3   4
+
+>> A
+A =
+
+   1   2
+   3   4
+   5   6
+
+>> A([1 3], :)
+ans =
+
+   1   2
+   5   6
+
+>> A([1 3], :) # take everything  from 1 and 3 rows [1 3] - 1 3 row, : - all
+ans =
+
+   1   2
+   5   6
+
+>> A(:,2)
+ans =
+
+   2
+   4
+   6
+
+>> A(:,2) = [10;11;12]
+A =
+
+    1   10
+    3   11
+    5   12
+
+>> A
+A =
+
+    1   10
+    3   11
+    5   12
+
+>> A(:,2) = [10;11;12]; # assigning
+>> A = [A, [100, 101, 102]]
+error: horizontal dimensions mismatch (3x2 vs 1x3)
+>> A
+A =
+
+    1   10
+    3   11
+    5   12
+
+>> A = [A, [100;101;102]]
+A =
+
+     1    10   100
+     3    11   101
+     5    12   102
+
+>> A = [A, [100;101;102]]; appends another col vec to A from right side
+error: 'appends' undefined near line 1 column 22
+>> A = [A, [100;101;102]]; #appends another col vec to A from right side
+>> A = [-1;-2;-3, A]
+error: horizontal dimensions mismatch (1x1 vs 3x5)
+>> A = [[-1;-2;-3], A]
+A =
+
+    -1     1    10   100   100   100
+    -2     3    11   101   101   101
+    -3     5    12   102   102   102
+
+>> A = [[-1;-2;-3], A]; # appends from left of course
+>> A(:) # puts all elem of a matr into a single column vec
+ans =
+
+    -1
+    -2
+    -3
+    -1
+    -2
+    -3
+     1
+     3
+     5
+    10
+    11
+    12
+   100
+   101
+   102
+   100
+   101
+   102
+   100
+   101
+   102
+
+>> A = [1 2; 3 4; 5 6]
+A =
+
+   1   2
+   3   4
+   5   6
+
+>> B = [11 12; 13 14; 15 16]
+B =
+
+   11   12
+   13   14
+   15   16
+
+>> C = [A B] 
+C =
+
+    1    2   11   12
+    3    4   13   14
+    5    6   15   16
+
+>> C = [A B]; # convcatenates matrixes 
+>> Z = [7 8; 9 10]
+Z =
+
+    7    8
+    9   10
+
+>> C = [A Z]
+error: horizontal dimensions mismatch (3x2 vs 2x2)
+>> C = [A B]; # convcatenates matrixes dimensions must agree
+>> C = [A;B] # concatenates from top to bottom
+C =
+
+    1    2
+    3    4
+    5    6
+   11   12
+   13   14
+   15   16
+
+>> A = [1, 2; 3, 4]
+A =
+
+   1   2
+   3   4
+
+>> # A = [1, 2; 3, 4] = [1 2; 3 4]
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> # computations, programming finally:)
+>> 
+>> whos
+Variables in the current scope:
+
+   Attr Name        Size                     Bytes  Class
+   ==== ====        ====                     =====  ===== 
+        A           2x2                         32  double
+        B           3x2                         48  double
+        C           6x2                         96  double
+        Z           2x2                         32  double
+        ans        21x1                        168  double
+        v           1x4                         32  double
+
+Total is 51 elements using 408 bytes
+
+>> clear Z
+>> C = [1 1; 2 2]
+C =
+
+   1   1
+   2   2
+
+>> A * B
+error: operator *: nonconformant arguments (op1 is 2x2, op2 is 3x2)
+>> A * C
+ans =
+
+    5    5
+   11   11
+
+>> A
+A =
+
+   1   2
+   3   4
+
+>> A = [1 2; 3 4; 5 ]
+error: vertical dimensions mismatch (2x2 vs 1x1)
+>> A = [1 2; 3 4; 5 6]
+A =
+
+   1   2
+   3   4
+   5   6
+
+>> A * C
+ans =
+
+    5    5
+   11   11
+   17   17
+
+>> A * C; # matrix mult 
+>> C * A
+error: operator *: nonconformant arguments (op1 is 2x2, op2 is 3x2)
+>> A . * B # element by element multipliation
+parse error:
+
+  syntax error
+
+>>> A . * B # element by element multipliation
+        ^
+
+>> A .* B # element by element multipliation
+ans =
+
+   11   24
+   39   56
+   75   96
+
+>> A .* B == B .* A
+ans =
+
+   1   1
+   1   1
+   1   1
+
+>> A .* B = B .* A
+parse error:
+
+  invalid left hand side of assignment
+
+>>> A .* B = B .* A
+           ^
+
+>> A .* B == B .* A
+ans =
+
+   1   1
+   1   1
+   1   1
+
+>> A .^ 2
+ans =
+
+    1    4
+    9   16
+   25   36
+
+>> A .^ 2 ; # squaring every elem
+>> A .sqrt(2)
+error: matrix cannot be indexed with .
+>> A .sqrt 2
+parse error:
+
+  syntax error
+
+>>> A .sqrt 2
+            ^
+
+>> A .sqrt 
+error: matrix cannot be indexed with .
+>> v = [1; 2 ;3]
+v =
+
+   1
+   2
+   3
+
+>> 1 ./ v
+ans =
+
+   1.00000
+   0.50000
+   0.33333
+
+>> 1 ./ v; # elemntwise 1 over
+>> log(v)
+ans =
+
+   0.00000
+   0.69315
+   1.09861
+
+>> exp(v)
+ans =
+
+    2.7183
+    7.3891
+   20.0855
+
+>> abs(v)
+ans =
+
+   1
+   2
+   3
+
+>> v1 = [e, e, e]
+v1 =
+
+   2.7183   2.7183   2.7183
+
+>> log(v1)
+ans =
+
+   1   1   1
+
+>> -v
+ans =
+
+  -1
+  -2
+  -3
+
+>> v + ones(3, 1)
+ans =
+
+   2
+   3
+   4
+
+>> v + ones(length(v), 1)
+ans =
+
+   2
+   3
+   4
+
+>> v + ones(length(v), 1); # increments every elem by 1
+>> v
+v =
+
+   1
+   2
+   3
+
+>> v + 1
+ans =
+
+   2
+   3
+   4
+
+>> v + 1 ; # also increment
+>> A
+A =
+
+   1   2
+   3   4
+   5   6
+
+>> A'
+ans =
+
+   1   3   5
+   2   4   6
+
+>> A'; # A transpose
+>> A''
+ans =
+
+   1   2
+   3   4
+   5   6
+
+>> max(v)
+ans =  3
+>> [val, ind] = max(a)
+error: 'a' undefined near line 1 column 16
+error: evaluating argument list element number 1
+>> [val, ind] = max(v)
+val =  3
+ind =  3
+>> [val, ind] = max(v) ; # returns pair with max val and its index
+>> v = [0; 1; 0.9; 45]
+v =
+
+    0.00000
+    1.00000
+    0.90000
+   45.00000
+
+>> v < 3
+ans =
+
+   1
+   1
+   1
+   0
+
+>> v < 3; # apply to every alemnt and diplays 1 or 0 (true or false) if predicat holds (like map predicate)
+>> find(v < 3)
+ans =
+
+   1
+   2
+   3
+
+>> v = [0; 1; 0.9; 45;-9.0001]
+v =
+
+    0.00000
+    1.00000
+    0.90000
+   45.00000
+   -9.00010
+
+>> find(v < 3)
+ans =
+
+   1
+   2
+   3
+   5
+
+>> find(v < 3); # works like a filter with predicate supplied in a paranthesiss
+>> clear A
+>> A = magic 3
+parse error:
+
+  syntax error
+
+>>> A = magic 3
+              ^
+
+>> A = magic(3)
+A =
+
+   8   1   6
+   3   5   7
+   4   9   2
+
+>> [r, c] = find(A >= 7)
+r =
+
+   1
+   3
+   2
+
+c =
+
+   1
+   2
+   3
+
+>> [r, c] = find(A >= 7) ; # returns row and column of element gr or eq 7 (like a  filter): (1,1)(3,2)(2,3)
+>> M = [r, c] = find(A >= 7) ;
+>> M
+M =
+
+   1
+   3
+   2
+
+>> M = [[r, c] = find(A >= 7)] ;
+>> M
+M =
+
+   1
+   3
+   2
+
+>> M = [[r, c] = find(A >= 7)] 
+M =
+
+   1
+   3
+   2
+
+>> size(M)
+ans =
+
+   3   1
+
+>> M = [[c, r] = find(A >= 7)] 
+M =
+
+   1
+   3
+   2
+
+>> sum(v)
+ans =  37.900
+>> sum(v); # sums vecor
+>> whos
+Variables in the current scope:
+
+   Attr Name        Size                     Bytes  Class
+   ==== ====        ====                     =====  ===== 
+        A           3x3                         72  double
+        B           3x2                         48  double
+        C           2x2                         32  double
+        M           3x1                         24  double
+        ans         1x1                          8  double
+        c           3x1                         12  double
+        ind         1x1                          8  double
+        r           3x1                         12  double
+        v           5x1                         40  double
+        v1          1x3                         24  double
+        val         1x1                          8  double
+
+Total is 39 elements using 288 bytes
+
+>> sum(A)
+ans =
+
+   15   15   15
+
+>> A
+A =
+
+   8   1   6
+   3   5   7
+   4   9   2
+
+>> B
+B =
+
+   11   12
+   13   14
+   15   16
+
+>> sum(B)
+ans =
+
+   39   42
+
+>> sum(B(:,1))
+ans =  39
+>> sum(B(1,:))
+ans =  23
+>> prod(A)
+ans =
+
+   96   45   84
+
+>> prod(A); # product of coulmns for matrix
+>> prod(v) # normal product of el if vector
+ans = -0
+>> v
+v =
+
+    0.00000
+    1.00000
+    0.90000
+   45.00000
+   -9.00010
+
+>> floor(v)
+ans =
+
+    0
+    1
+    0
+   45
+  -10
+
+>> floor(v); # rounding down
+>> ceil(v) # rounding up
+ans =
+
+    0
+    1
+    1
+   45
+   -9
+
+>> max(rand(2), rand(2)) # takes elementwise max of 2 random 2 by 2 matrixes
+ans =
+
+   0.21119   0.46526
+   0.90423   0.93603
+
+>> A 
+A =
+
+   8   1   6
+   3   5   7
+   4   9   2
+
+>> max(A , []), 1
+error: max: nonconformant arguments (op1 is 3x3, op2 is 0x0)
+>> max(A , [], 1) 
+ans =
+
+   8   9   7
+
+>> max(A , [], 1) ; # columnwise maximum
+>> max(A , [], 2) # rowwise max 
+ans =
+
+   8
+   7
+   9
+
+>> max(max(A)) # max from whole matrix
+ans =  9
+>> max(max(A)) # max from whole matrix = max(A(:))
+ans =  9
+>> A = magic(9)
+A =
+
+   47   58   69   80    1   12   23   34   45
+   57   68   79    9   11   22   33   44   46
+   67   78    8   10   21   32   43   54   56
+   77    7   18   20   31   42   53   55   66
+    6   17   19   30   41   52   63   65   76
+   16   27   29   40   51   62   64   75    5
+   26   28   39   50   61   72   74    4   15
+   36   38   49   60   71   73    3   14   25
+   37   48   59   70   81    2   13   24   35
+
+>> sum(A, 1)
+ans =
+
+   369   369   369   369   369   369   369   369   369
+
+>> sum(A, 1); # each colmumn sum
+>> sum (A, 2) # each row sum
+ans =
+
+   369
+   369
+   369
+   369
+   369
+   369
+   369
+   369
+   369
+
+>> eye(9)
+ans =
+
+Diagonal Matrix
+
+   1   0   0   0   0   0   0   0   0
+   0   1   0   0   0   0   0   0   0
+   0   0   1   0   0   0   0   0   0
+   0   0   0   1   0   0   0   0   0
+   0   0   0   0   1   0   0   0   0
+   0   0   0   0   0   1   0   0   0
+   0   0   0   0   0   0   1   0   0
+   0   0   0   0   0   0   0   1   0
+   0   0   0   0   0   0   0   0   1
+
+>> A .* eye(9)
+ans =
+
+   47    0    0    0    0    0    0    0    0
+    0   68    0    0    0    0    0    0    0
+    0    0    8    0    0    0    0    0    0
+    0    0    0   20    0    0    0    0    0
+    0    0    0    0   41    0    0    0    0
+    0    0    0    0    0   62    0    0    0
+    0    0    0    0    0    0   74    0    0
+    0    0    0    0    0    0    0   14    0
+    0    0    0    0    0    0    0    0   35
+
+>> A .* eye(9); # elementwise product
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> A = magic(3)
+A =
+
+   8   1   6
+   3   5   7
+   4   9   2
+
+>> pinv(A)
+ans =
+
+   0.147222  -0.144444   0.063889
+  -0.061111   0.022222   0.105556
+  -0.019444   0.188889  -0.102778
+
+>> pinv(A); # inverse (pseudo in fact)
+>> tmp = pinv(A)
+tmp =
+
+   0.147222  -0.144444   0.063889
+  -0.061111   0.022222   0.105556
+  -0.019444   0.188889  -0.102778
+
+>> tmp * A
+ans =
+
+   1.0000e+00   3.3307e-16  -3.1086e-15
+  -6.0507e-15   1.0000e+00   6.3283e-15
+   3.0531e-15   1.1102e-16   1.0000e+00
+
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> 
+>> # PLOTTING
+>> t = [0:0.01:0.99];
+>> y1 = sin(8 * pi * t);
+>> plot(t, y1)
+>> y2 = cos(8 * pi * t)
+y2 =
+
+ Columns 1 through 11:
+
+   1.000000   0.968583   0.876307   0.728969   0.535827   0.309017   0.062791  -0.187381  -0.425779  -0.637424  -0.809017
+
+ Columns 12 through 22:
+
+  -0.929776  -0.992115  -0.992115  -0.929776  -0.809017  -0.637424  -0.425779  -0.187381   0.062791   0.309017   0.535827
+
+ Columns 23 through 33:
+
+   0.728969   0.876307   0.968583   1.000000   0.968583   0.876307   0.728969   0.535827   0.309017   0.062791  -0.187381
+
+ Columns 34 through 44:
+
+  -0.425779  -0.637424  -0.809017  -0.929776  -0.992115  -0.992115  -0.929776  -0.809017  -0.637424  -0.425779  -0.187381
+
+ Columns 45 through 55:
+
+   0.062791   0.309017   0.535827   0.728969   0.876307   0.968583   1.000000   0.968583   0.876307   0.728969   0.535827
+
+ Columns 56 through 66:
+
+   0.309017   0.062791  -0.187381  -0.425779  -0.637424  -0.809017  -0.929776  -0.992115  -0.992115  -0.929776  -0.809017
+
+ Columns 67 through 77:
+
+  -0.637424  -0.425779  -0.187381   0.062791   0.309017   0.535827   0.728969   0.876307   0.968583   1.000000   0.968583
+
+ Columns 78 through 88:
+
+   0.876307   0.728969   0.535827   0.309017   0.062791  -0.187381  -0.425779  -0.637424  -0.809017  -0.929776  -0.992115
+
+ Columns 89 through 99:
+
+  -0.992115  -0.929776  -0.809017  -0.637424  -0.425779  -0.187381   0.062791   0.309017   0.535827   0.728969   0.876307
+
+ Column 100:
+
+   0.968583
+
+>> plot(t, y2);
+>> plot(t y1 - y2)
+parse error:
+
+  syntax error
+
+>>> plot(t y1 - y2)
+            ^
+
+>> plot(t, y1 - y2)
+>> plot(t, y1)
+>> hold on
+>> plot(t, y2, 'r')
+>> plot(t, y2, 'r')
+>> plot(t, y1)
+error: octave_base_value::convert_to_str_internal (): wrong type argument '<unknown type>'
+error: called from
+    __line__ at line 117 column 21
+    line at line 56 column 8
+    __plt__>__plt2vv__ at line 500 column 10
+    __plt__>__plt2__ at line 246 column 14
+    __plt__ at line 113 column 17
+    plot at line 220 column 10
+>> plot(t, y1)
+>> hold on
+>> plot(t, y2, 'r')
+>> hold on # catches previous chart and plot the next one on top of it
+>> plot(t, y1)
+>> hold on # catches previous chart and plot the next one on top of it
+>> plot(t, y2, 'r')
+>> xlabel('time')
+>> ylabel('value')
+>> legend('sin', 'cos')
+>> title('test')
+>> # previous doing what intuitively must do
+>> print -dpng 'tetsplot.png'
+warning: print.m: epstool binary is not available.
+Some output formats are not available.
+warning: called from
+    __print_parse_opts__ at line 382 column 9
+    print at line 291 column 8
+warning: print.m: fig2dev binary is not available.
+Some output formats are not available.
+>> print -dpdf 'tetsplot.pdf'
+>> close # closes a figure
+>> figure(1) plot(t, y1)
+parse error:
+
+  syntax error
+
+>>> figure(1) plot(t, y1)
+                 ^
+
+>> figure(1); plot(t, y1)
+>> figure(2); plot(t, y2)
+>> # previous create 2 figures
+>> subplot(1, 2 1)
+parse error:
+
+  syntax error
+
+>>> subplot(1, 2 1)
+                 ^
+
+>> subplot(1, 2 ,1)
+>> subplot(1, 2 ,2)
+>> plot(t, y2)
+>> plot(t, y1)
+>> close
+>> plot(t, y1)
+>> axis(-1 1)
+parse error:
+
+  syntax error
+
+>>> axis(-1 1)
+            ^
+
+>> axis([-1 1])
+>> plot(t, y1)
+>> clf; clears figure
+error: 'clears' undefined near line 1 column 6
+>> #
+>> clf; # clears figure, but chart still on the desktop
+>> 
+>> 
+>> 
+>> 
+>> a = 1, b = 2, c = 3 # chaining instructions
+a =  1
+b =  2
+c =  3
+>> s = [0:0.1:1], y3 = log(t), plot(s, y3)
+s =
+
+   0.00000   0.10000   0.20000   0.30000   0.40000   0.50000   0.60000   0.70000   0.80000   0.90000   1.00000
+
+y3 =
+
+ Columns 1 through 11:
+
+       -Inf  -4.605170  -3.912023  -3.506558  -3.218876  -2.995732  -2.813411  -2.659260  -2.525729  -2.407946  -2.302585
+
+ Columns 12 through 22:
+
+  -2.207275  -2.120264  -2.040221  -1.966113  -1.897120  -1.832581  -1.771957  -1.714798  -1.660731  -1.609438  -1.560648
+
+ Columns 23 through 33:
+
+  -1.514128  -1.469676  -1.427116  -1.386294  -1.347074  -1.309333  -1.272966  -1.237874  -1.203973  -1.171183  -1.139434
+
+ Columns 34 through 44:
+
+  -1.108663  -1.078810  -1.049822  -1.021651  -0.994252  -0.967584  -0.941609  -0.916291  -0.891598  -0.867501  -0.843970
+
+ Columns 45 through 55:
+
+  -0.820981  -0.798508  -0.776529  -0.755023  -0.733969  -0.713350  -0.693147  -0.673345  -0.653926  -0.634878  -0.616186
+
+ Columns 56 through 66:
+
+  -0.597837  -0.579818  -0.562119  -0.544727  -0.527633  -0.510826  -0.494296  -0.478036  -0.462035  -0.446287  -0.430783
+
+ Columns 67 through 77:
+
+  -0.415515  -0.400478  -0.385662  -0.371064  -0.356675  -0.342490  -0.328504  -0.314711  -0.301105  -0.287682  -0.274437
+
+ Columns 78 through 88:
+
+  -0.261365  -0.248461  -0.235722  -0.223144  -0.210721  -0.198451  -0.186330  -0.174353  -0.162519  -0.150823  -0.139262
+
+ Columns 89 through 99:
+
+  -0.127833  -0.116534  -0.105361  -0.094311  -0.083382  -0.072571  -0.061875  -0.051293  -0.040822  -0.030459  -0.020203
+
+ Column 100:
+
+  -0.010050
+
