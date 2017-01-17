@@ -1,0 +1,6437 @@
+>> "gradinet descen vectorize try"
+ans = gradinet descen vectorize try
+>> exit
+
+>> who
+>> whos
+>> v = [1;2;3]
+v =
+
+   1
+   2
+   3
+
+>> a = [1 2 3]
+a =
+
+   1   2   3
+
+>> v * a
+ans =
+
+   1   2   3
+   2   4   6
+   3   6   9
+
+>> a * v
+ans =  14
+>> a = [1;2;3]
+a =
+
+   1
+   2
+   3
+
+>> a * v
+error: operator *: nonconformant arguments (op1 is 3x1, op2 is 3x1)
+>> v' * a
+ans =  14
+>> theta = [1;1;1]
+theta =
+
+   1
+   1
+   1
+
+>> X = [1 1 1; 1 2 2; 1 3 3]
+X =
+
+   1   1   1
+   1   2   2
+   1   3   3
+
+>> X(1,;)
+parse error:
+
+  syntax error
+
+>>> X(1,;)
+        ^
+
+>> X(1,:)
+ans =
+
+   1   1   1
+
+>> X(2,:)
+ans =
+
+   1   2   2
+
+>> theta 
+theta =
+
+   1
+   1
+   1
+
+>> y = [1;2;3]
+y =
+
+   1
+   2
+   3
+
+>> X
+X =
+
+   1   1   1
+   1   2   2
+   1   3   3
+
+>> theta
+theta =
+
+   1
+   1
+   1
+
+>> theta = [1 1 1]
+theta =
+
+   1   1   1
+
+>> who
+Variables in the current scope:
+
+X      a      ans    theta  v      y
+
+>> whos
+Variables in the current scope:
+
+   Attr Name        Size                     Bytes  Class
+   ==== ====        ====                     =====  ===== 
+        X           3x3                         72  double
+        a           3x1                         24  double
+        ans         1x3                         24  double
+        theta       1x3                         24  double
+        v           3x1                         24  double
+        y           3x1                         24  double
+
+Total is 24 elements using 192 bytes
+
+>> theta' * X(1,:)
+ans =
+
+   1   1   1
+   1   1   1
+   1   1   1
+
+>> theta
+theta =
+
+   1   1   1
+
+>> theta' * X(:,1)
+error: operator *: nonconformant arguments (op1 is 3x1, op2 is 3x1)
+>> X(1,:)
+ans =
+
+   1   1   1
+
+>> theta * X(1,:)'
+ans =  3
+>> theta * X(2,:)'
+ans =  5
+>> theta * X(3,:)'
+ans =  7
+>> theta * X(:,:)'
+ans =
+
+   3   5   7
+
+>> theta * X(:,:)' - y
+ans =
+
+   2   4   6
+   1   3   5
+   0   2   4
+
+>> y
+y =
+
+   1
+   2
+   3
+
+>> theta * X(:,:)' - y'
+ans =
+
+   2   3   4
+
+>> (theta * X(:,:)' - y') * X
+ans =
+
+    9   20   20
+
+>> theta = [0 0 0]
+theta =
+
+   0   0   0
+
+>> (theta * X(:,:)' - y') * X
+ans =
+
+   -6  -14  -14
+
+>> (theta * X(:,:)' * X - y' * X)
+ans =
+
+   -6  -14  -14
+
+>> (theta * X(:,1)' * X(:,1) - y' * X(:,1))
+error: operator *: nonconformant arguments (op1 is 1x3, op2 is 1x3)
+>> (theta * X(1,:)' * X(1,:) - y' * X(1,:))
+error: operator *: nonconformant arguments (op1 is 1x3, op2 is 1x3)
+>> (theta * X(1,:)' * X(1,:) 
+
+>> (theta * X(1,:)') * X(1,:) 
+ans =
+
+   0   0   0
+
+>> (theta * X(1,:)' * X(1,:) - y' * X(1,:))
+error: operator *: nonconformant arguments (op1 is 1x3, op2 is 1x3)
+>> (theta * X(1,:)' * X(1,:) - y' * X(1,:)')
+ans =
+
+  -6  -6  -6
+
+>> (theta * X(1,:)' * X(1,:) - y' * X(1,:)')
+ans =
+
+  -6  -6  -6
+
+>> theta(1) = theta(1) - (theta * X(1,;)' - y')
+parse error:
+
+  syntax error
+
+>>> theta(1) = theta(1) - (theta * X(1,;)' - y')
+                                       ^
+
+>> theta(1) = theta(1) - (theta * X(1,;)' - y')
+parse error:
+
+  syntax error
+
+>>> theta(1) = theta(1) - (theta * X(1,;)' - y')
+                                       ^
+
+>> theta(1) = theta(1) - theta * X(1,;)' - y'
+parse error:
+
+  syntax error
+
+>>> theta(1) = theta(1) - theta * X(1,;)' - y'
+                                      ^
+
+>> theta(1) = theta
+error: A(I) = X: X must have the same size as I
+>> theta(1) = theta(1) - theta * X(1,:)' - y'
+error: A(I) = X: X must have the same size as I
+>> theta(1) = theta(1) - (theta * X(1,:)' - y')
+error: A(I) = X: X must have the same size as I
+>> theta(1) = theta(1) - (theta * X(1,:)' - y(1))
+theta =
+
+   1   0   0
+
+>> theta = [0 0 0]
+theta =
+
+   0   0   0
+
+>> theta(1) = theta(1) - (theta * X(1,:)' - y(1))
+theta =
+
+   1   0   0
+
+>> theta = [1 1 1]
+theta =
+
+   1   1   1
+
+>> theta(1) = theta(1) - (theta * X(1,:)' - y(1))
+theta =
+
+  -1   1   1
+
+>> X(1,:)
+ans =
+
+   1   1   1
+
+>> X(2,:)
+ans =
+
+   1   2   2
+
+>> X(:,1)
+ans =
+
+   1
+   1
+   1
+
+>> theta(1) = theta(1) - (theta * X(1,:)' - y(1)) * X(1,1)
+theta =
+
+  -1   1   1
+
+>> theta(1) = theta(1) - (theta * X(1,:)' - y(1)) * X(1,2)
+theta =
+
+  -1   1   1
+
+>> theta(1) = theta(1) - (theta * X(1,:)' - y(1)) * X(1,1)
+theta =
+
+  -1   1   1
+
+>> (theta * X(1,:)' - y(1))
+ans = 0
+>> (theta * X' - y)
+ans =
+
+   0   2   4
+  -1   1   3
+  -2   0   2
+
+>> theta(1) = theta(1) - (theta * X(:,:)' - y) * X(:,1)
+error: A(I) = X: X must have the same size as I
+>> theta(1) = theta(1) - (theta * X(:,:)' - y') * X(:,1)
+theta =
+
+  -4   1   1
+
+>> theta = [1 1 1]
+theta =
+
+   1   1   1
+
+>> tmp1 = theta(1) - (theta * X(:,:)' - y') * X(:,1)
+tmp1 = -8
+>> theta
+theta =
+
+   1   1   1
+
+>> X
+X =
+
+   1   1   1
+   1   2   2
+   1   3   3
+
+>> y
+y =
+
+   1
+   2
+   3
+
+>> theta
+theta =
+
+   1   1   1
+
+>> theta(1) = theta(1) - (theta * X(:,:)' - y') * X(:,1)
+theta =
+
+  -8   1   1
+
+>> theta = [1 1 1]
+theta =
+
+   1   1   1
+
+>> theta = [1 1 1]
+theta =
+
+   1   1   1
+
+>> theta = theta - (theta * X(:,:)' - y') * X(:,:)
+theta =
+
+   -8  -19  -19
+
+>> theta = [1 1 1]
+theta =
+
+   1   1   1
+
+>> tmp = theta
+tmp =
+
+   1   1   1
+
+>> tmp
+tmp =
+
+   1   1   1
+
+>> tmp = theta - (theta * X(:,:)' - y') * X(:,:)
+tmp =
+
+   -8  -19  -19
+
+>> cost_function(X, y, theta)
+error: cost_function: operator *: nonconformant arguments (op1 is 3x3, op2 is 1x3)
+error: called from
+    cost_function at line 7 column 13
+>> X
+X =
+
+   1   1   1
+   1   2   2
+   1   3   3
+
+>> X(1:,:)
+parse error:
+
+  syntax error
+
+>>> X(1:,:)
+        ^
+
+>> X(:1,:)
+parse error:
+
+  syntax error
+
+>>> X(:1,:)
+       ^
+
+>> X(,:)
+parse error:
+
+  syntax error
+
+>>> X(,:)
+      ^
+
+>> X(2,:)
+ans =
+
+   1   2   2
+
+>> X(:,2)
+ans =
+
+   1
+   2
+   3
+
+>> X(:,2:3)
+ans =
+
+   1   1
+   2   2
+   3   3
+
+>> cost_function(X(:,2:3), y, theta)
+error: cost_function: operator *: nonconformant arguments (op1 is 3x2, op2 is 1x3)
+error: called from
+    cost_function at line 7 column 13
+>> theta = [1;1;1]
+theta =
+
+   1
+   1
+   1
+
+>> cost_function(X(:,2:3), y, theta)
+error: cost_function: operator *: nonconformant arguments (op1 is 3x2, op2 is 3x1)
+error: called from
+    cost_function at line 7 column 13
+>> cost_function(X, y, theta)
+ans =  4.8333
+>> cost_function(X, y, theta) # theta must be col vec
+ans =  4.8333
+>> theta = [1 1 1]
+theta =
+
+   1   1   1
+
+>> cost_function(X, y, theta') # theta must be col vec
+ans =  4.8333
+>> cost_function(X, y, theta') # theta must be col vec
+ans =  4.8333
+>> gradient_descent(X, y, theta, 0.01, 1.2)
+parse error near line 19 of file /home/lion/projects/python/ml_coursera/octave/gradient_descent/gradient_descent.m
+
+  syntax error
+
+
+
+>> gradient_descent(X, y, theta, 0.01, 1.2)
+G =
+
+   1   1   1
+
+ans =
+
+   1   1   1
+
+>> gradient_descent(X, y, theta, 0.01, 1.2)
+G =
+
+   1   1   1
+
+ans =
+
+   1   1   1
+
+>> theta
+theta =
+
+   1   1   1
+
+>> theta = [0 0 0]
+theta =
+
+   0   0   0
+
+>> gradient_descent(X, y, theta, 0.01, 1.2)
+G =
+
+   0   0   0
+
+ans =
+
+   0   0   0
+
+>> gradient_descent(X, y, theta, 0.01, 1.2)
+i = 0
+i =  1
+i =  2
+i =  3
+i =  4
+i =  5
+i =  6
+i =  7
+i =  8
+i =  9
+i =  10
+i =  11
+i =  12
+i =  13
+i =  14
+i =  15
+i =  16
+i =  17
+i =  18
+i =  19
+i =  20
+i =  21
+i =  22
+i =  23
+i =  24
+i =  25
+i =  26
+i =  27
+i =  28
+i =  29
+i =  30
+i =  31
+i =  32
+i =  33
+i =  34
+i =  35
+i =  36
+i =  37
+i =  38
+i =  39
+i =  40
+i =  41
+i =  42
+i =  43
+i =  44
+i =  45
+i =  46
+i =  47
+i =  48
+i =  49
+i =  50
+i =  51
+i =  52
+i =  53
+i =  54
+i =  55
+i =  56
+i =  57
+i =  58
+i =  59
+i =  60
+i =  61
+i =  62
+i =  63
+i =  64
+i =  65
+i =  66
+i =  67
+i =  68
+i =  69
+i =  70
+i =  71
+i =  72
+i =  73
+i =  74
+i =  75
+i =  76
+i =  77
+i =  78
+i =  79
+i =  80
+i =  81
+i =  82
+i =  83
+i =  84
+i =  85
+i =  86
+i =  87
+i =  88
+i =  89
+i =  90
+i =  91
+i =  92
+i =  93
+i =  94
+i =  95
+i =  96
+i =  97
+i =  98
+i =  99
+i =  100
+i =  101
+i =  102
+i =  103
+i =  104
+i =  105
+i =  106
+i =  107
+i =  108
+i =  109
+i =  110
+i =  111
+i =  112
+i =  113
+i =  114
+i =  115
+i =  116
+i =  117
+i =  118
+i =  119
+i =  120
+i =  121
+i =  122
+i =  123
+i =  124
+i =  125
+i =  126
+i =  127
+i =  128
+i =  129
+i =  130
+i =  131
+i =  132
+i =  133
+i =  134
+i =  135
+i =  136
+i =  137
+i =  138
+i =  139
+i =  140
+i =  141
+i =  142
+i =  143
+i =  144
+i =  145
+i =  146
+i =  147
+i =  148
+i =  149
+i =  150
+i =  151
+i =  152
+i =  153
+i =  154
+i =  155
+i =  156
+i =  157
+i =  158
+i =  159
+i =  160
+i =  161
+i =  162
+i =  163
+i =  164
+i =  165
+i =  166
+i =  167
+i =  168
+i =  169
+i =  170
+i =  171
+i =  172
+i =  173
+i =  174
+i =  175
+i =  176
+i =  177
+i =  178
+i =  179
+i =  180
+i =  181
+i =  182
+i =  183
+i =  184
+i =  185
+i =  186
+i =  187
+i =  188
+i =  189
+i =  190
+i =  191
+i =  192
+i =  193
+i =  194
+i =  195
+i =  196
+i =  197
+i =  198
+i =  199
+i =  200
+i =  201
+i =  202
+i =  203
+i =  204
+i =  205
+i =  206
+i =  207
+i =  208
+i =  209
+i =  210
+i =  211
+i =  212
+i =  213
+i =  214
+i =  215
+i =  216
+i =  217
+i =  218
+i =  219
+i =  220
+i =  221
+i =  222
+i =  223
+i =  224
+i =  225
+i =  226
+i =  227
+i =  228
+i =  229
+i =  230
+i =  231
+i =  232
+i =  233
+i =  234
+i =  235
+i =  236
+i =  237
+i =  238
+i =  239
+i =  240
+i =  241
+i =  242
+i =  243
+i =  244
+i =  245
+i =  246
+i =  247
+i =  248
+i =  249
+i =  250
+i =  251
+i =  252
+i =  253
+i =  254
+i =  255
+i =  256
+i =  257
+i =  258
+i =  259
+i =  260
+i =  261
+i =  262
+i =  263
+i =  264
+i =  265
+i =  266
+i =  267
+i =  268
+i =  269
+i =  270
+i =  271
+i =  272
+i =  273
+i =  274
+i =  275
+i =  276
+i =  277
+i =  278
+i =  279
+i =  280
+i =  281
+i =  282
+i =  283
+i =  284
+i =  285
+i =  286
+i =  287
+i =  288
+i =  289
+i =  290
+i =  291
+i =  292
+i =  293
+i =  294
+i =  295
+i =  296
+i =  297
+i =  298
+i =  299
+i =  300
+i =  301
+i =  302
+i =  303
+i =  304
+i =  305
+i =  306
+i =  307
+i =  308
+i =  309
+i =  310
+i =  311
+i =  312
+i =  313
+i =  314
+i =  315
+i =  316
+i =  317
+i =  318
+i =  319
+i =  320
+i =  321
+i =  322
+i =  323
+i =  324
+i =  325
+i =  326
+i =  327
+i =  328
+i =  329
+i =  330
+i =  331
+i =  332
+i =  333
+i =  334
+i =  335
+i =  336
+i =  337
+i =  338
+i =  339
+i =  340
+i =  341
+i =  342
+i =  343
+i =  344
+i =  345
+i =  346
+i =  347
+i =  348
+i =  349
+i =  350
+i =  351
+i =  352
+i =  353
+i =  354
+i =  355
+i =  356
+i =  357
+i =  358
+i =  359
+i =  360
+i =  361
+i =  362
+i =  363
+i =  364
+i =  365
+i =  366
+i =  367
+i =  368
+i =  369
+i =  370
+i =  371
+i =  372
+i =  373
+i =  374
+i =  375
+i =  376
+i =  377
+i =  378
+i =  379
+i =  380
+i =  381
+i =  382
+i =  383
+i =  384
+i =  385
+i =  386
+i =  387
+i =  388
+i =  389
+i =  390
+i =  391
+i =  392
+i =  393
+i =  394
+i =  395
+i =  396
+i =  397
+i =  398
+i =  399
+i =  400
+i =  401
+i =  402
+i =  403
+i =  404
+i =  405
+i =  406
+i =  407
+i =  408
+i =  409
+i =  410
+i =  411
+i =  412
+i =  413
+i =  414
+i =  415
+i =  416
+i =  417
+i =  418
+i =  419
+i =  420
+i =  421
+i =  422
+i =  423
+i =  424
+i =  425
+i =  426
+i =  427
+i =  428
+i =  429
+i =  430
+i =  431
+i =  432
+i =  433
+i =  434
+i =  435
+i =  436
+i =  437
+i =  438
+i =  439
+i =  440
+i =  441
+i =  442
+i =  443
+i =  444
+i =  445
+i =  446
+i =  447
+i =  448
+i =  449
+i =  450
+i =  451
+i =  452
+i =  453
+i =  454
+i =  455
+i =  456
+i =  457
+i =  458
+i =  459
+i =  460
+i =  461
+i =  462
+i =  463
+i =  464
+i =  465
+i =  466
+i =  467
+i =  468
+i =  469
+i =  470
+i =  471
+i =  472
+i =  473
+i =  474
+i =  475
+i =  476
+i =  477
+i =  478
+i =  479
+i =  480
+i =  481
+i =  482
+i =  483
+i =  484
+i =  485
+i =  486
+i =  487
+i =  488
+i =  489
+i =  490
+i =  491
+i =  492
+i =  493
+i =  494
+i =  495
+i =  496
+i =  497
+i =  498
+i =  499
+i =  500
+i =  501
+i =  502
+i =  503
+i =  504
+i =  505
+i =  506
+i =  507
+i =  508
+i =  509
+i =  510
+i =  511
+i =  512
+i =  513
+i =  514
+i =  515
+i =  516
+i =  517
+i =  518
+i =  519
+i =  520
+i =  521
+i =  522
+i =  523
+i =  524
+i =  525
+i =  526
+i =  527
+i =  528
+i =  529
+i =  530
+i =  531
+i =  532
+i =  533
+i =  534
+i =  535
+i =  536
+i =  537
+i =  538
+i =  539
+i =  540
+i =  541
+i =  542
+i =  543
+i =  544
+i =  545
+i =  546
+i =  547
+i =  548
+i =  549
+i =  550
+i =  551
+i =  552
+i =  553
+i =  554
+i =  555
+i =  556
+i =  557
+i =  558
+i =  559
+i =  560
+i =  561
+i =  562
+i =  563
+i =  564
+i =  565
+i =  566
+i =  567
+i =  568
+i =  569
+i =  570
+i =  571
+i =  572
+i =  573
+i =  574
+i =  575
+i =  576
+i =  577
+i =  578
+i =  579
+i =  580
+i =  581
+i =  582
+i =  583
+i =  584
+i =  585
+i =  586
+i =  587
+i =  588
+i =  589
+i =  590
+i =  591
+i =  592
+i =  593
+i =  594
+i =  595
+i =  596
+i =  597
+i =  598
+i =  599
+i =  600
+i =  601
+i =  602
+i =  603
+i =  604
+i =  605
+i =  606
+i =  607
+i =  608
+i =  609
+i =  610
+i =  611
+i =  612
+i =  613
+i =  614
+i =  615
+i =  616
+i =  617
+i =  618
+i =  619
+i =  620
+i =  621
+i =  622
+i =  623
+i =  624
+i =  625
+i =  626
+i =  627
+i =  628
+i =  629
+i =  630
+i =  631
+i =  632
+i =  633
+i =  634
+i =  635
+i =  636
+i =  637
+i =  638
+i =  639
+i =  640
+i =  641
+i =  642
+i =  643
+i =  644
+i =  645
+i =  646
+i =  647
+i =  648
+i =  649
+i =  650
+i =  651
+i =  652
+i =  653
+i =  654
+i =  655
+i =  656
+i =  657
+i =  658
+i =  659
+i =  660
+i =  661
+i =  662
+i =  663
+i =  664
+i =  665
+i =  666
+i =  667
+i =  668
+i =  669
+i =  670
+i =  671
+i =  672
+i =  673
+i =  674
+i =  675
+i =  676
+i =  677
+i =  678
+i =  679
+i =  680
+i =  681
+i =  682
+i =  683
+i =  684
+i =  685
+i =  686
+i =  687
+i =  688
+i =  689
+i =  690
+i =  691
+i =  692
+i =  693
+i =  694
+i =  695
+i =  696
+i =  697
+i =  698
+i =  699
+i =  700
+i =  701
+i =  702
+i =  703
+i =  704
+i =  705
+i =  706
+i =  707
+i =  708
+i =  709
+i =  710
+i =  711
+i =  712
+i =  713
+i =  714
+i =  715
+i =  716
+i =  717
+i =  718
+i =  719
+i =  720
+i =  721
+i =  722
+i =  723
+i =  724
+i =  725
+i =  726
+i =  727
+i =  728
+i =  729
+i =  730
+i =  731
+i =  732
+i =  733
+i =  734
+i =  735
+i =  736
+i =  737
+i =  738
+i =  739
+i =  740
+i =  741
+i =  742
+i =  743
+i =  744
+i =  745
+i =  746
+i =  747
+i =  748
+i =  749
+i =  750
+i =  751
+i =  752
+i =  753
+i =  754
+i =  755
+i =  756
+i =  757
+i =  758
+i =  759
+i =  760
+i =  761
+i =  762
+i =  763
+i =  764
+i =  765
+i =  766
+i =  767
+i =  768
+i =  769
+i =  770
+i =  771
+i =  772
+i =  773
+i =  774
+i =  775
+i =  776
+i =  777
+i =  778
+i =  779
+i =  780
+i =  781
+i =  782
+i =  783
+i =  784
+i =  785
+i =  786
+i =  787
+i =  788
+i =  789
+i =  790
+i =  791
+i =  792
+i =  793
+i =  794
+i =  795
+i =  796
+i =  797
+i =  798
+i =  799
+i =  800
+i =  801
+i =  802
+i =  803
+i =  804
+i =  805
+i =  806
+i =  807
+i =  808
+i =  809
+i =  810
+i =  811
+i =  812
+i =  813
+i =  814
+i =  815
+i =  816
+i =  817
+i =  818
+i =  819
+i =  820
+i =  821
+i =  822
+i =  823
+i =  824
+i =  825
+i =  826
+i =  827
+i =  828
+i =  829
+i =  830
+i =  831
+i =  832
+i =  833
+i =  834
+i =  835
+i =  836
+i =  837
+i =  838
+i =  839
+i =  840
+i =  841
+i =  842
+i =  843
+i =  844
+i =  845
+i =  846
+i =  847
+i =  848
+i =  849
+i =  850
+i =  851
+i =  852
+i =  853
+i =  854
+i =  855
+i =  856
+i =  857
+i =  858
+i =  859
+i =  860
+i =  861
+i =  862
+i =  863
+i =  864
+i =  865
+i =  866
+i =  867
+i =  868
+i =  869
+i =  870
+i =  871
+i =  872
+i =  873
+i =  874
+i =  875
+i =  876
+i =  877
+i =  878
+i =  879
+i =  880
+i =  881
+i =  882
+i =  883
+i =  884
+i =  885
+i =  886
+i =  887
+i =  888
+i =  889
+i =  890
+i =  891
+i =  892
+i =  893
+i =  894
+i =  895
+i =  896
+i =  897
+i =  898
+i =  899
+i =  900
+i =  901
+i =  902
+i =  903
+i =  904
+i =  905
+i =  906
+i =  907
+i =  908
+i =  909
+i =  910
+i =  911
+i =  912
+i =  913
+i =  914
+i =  915
+i =  916
+i =  917
+i =  918
+i =  919
+i =  920
+i =  921
+i =  922
+i =  923
+i =  924
+i =  925
+i =  926
+i =  927
+i =  928
+i =  929
+i =  930
+i =  931
+i =  932
+i =  933
+i =  934
+i =  935
+i =  936
+i =  937
+i =  938
+i =  939
+i =  940
+i =  941
+i =  942
+i =  943
+i =  944
+i =  945
+i =  946
+i =  947
+i =  948
+i =  949
+i =  950
+i =  951
+i =  952
+i =  953
+i =  954
+i =  955
+i =  956
+i =  957
+i =  958
+i =  959
+i =  960
+i =  961
+i =  962
+i =  963
+i =  964
+i =  965
+i =  966
+i =  967
+i =  968
+i =  969
+i =  970
+i =  971
+i =  972
+i =  973
+i =  974
+i =  975
+i =  976
+i =  977
+i =  978
+i =  979
+i =  980
+i =  981
+i =  982
+i =  983
+i =  984
+i =  985
+i =  986
+i =  987
+i =  988
+i =  989
+i =  990
+i =  991
+i =  992
+i =  993
+i =  994
+i =  995
+i =  996
+i =  997
+i =  998
+i =  999
+i =  1000
+G =
+
+   NaN   NaN   NaN
+
+ans =
+
+   NaN   NaN   NaN
+
+>> 
+>> 
+>> whos
+Variables in the current scope:
+
+   Attr Name        Size                     Bytes  Class
+   ==== ====        ====                     =====  ===== 
+        X           3x3                         72  double
+        ans         1x1                          8  double
+        theta       1x3                         24  double
+        y           3x1                         24  double
+
+Total is 16 elements using 128 bytes
+
+>> gradient_descent(X, y, theta, 0.1, 1.2)
+theta =
+
+   7.9800e+17   1.8359e+18   1.8359e+18
+
+theta =
+
+  -8.9721e+18  -2.0642e+19  -2.0642e+19
+
+theta =
+
+   1.0087e+20   2.3208e+20   2.3208e+20
+
+theta =
+
+  -1.1342e+21  -2.6093e+21  -2.6093e+21
+
+theta =
+
+   1.2751e+22   2.9337e+22   2.9337e+22
+
+theta =
+
+  -1.4337e+23  -3.2984e+23  -3.2984e+23
+
+theta =
+
+   1.6119e+24   3.7084e+24   3.7084e+24
+
+theta =
+
+  -1.8123e+25  -4.1695e+25  -4.1695e+25
+
+theta =
+
+   2.0376e+26   4.6878e+26   4.6878e+26
+
+theta =
+
+  -2.2909e+27  -5.2706e+27  -5.2706e+27
+
+theta =
+
+   2.5757e+28   5.9258e+28   5.9258e+28
+
+theta =
+
+  -2.8959e+29  -6.6625e+29  -6.6625e+29
+
+theta =
+
+   3.2559e+30   7.4908e+30   7.4908e+30
+
+theta =
+
+  -3.6607e+31  -8.4220e+31  -8.4220e+31
+
+theta =
+
+   4.1158e+32   9.4690e+32   9.4690e+32
+
+theta =
+
+  -4.6274e+33  -1.0646e+34  -1.0646e+34
+
+theta =
+
+   5.2027e+34   1.1970e+35   1.1970e+35
+
+theta =
+
+  -5.8495e+35  -1.3458e+36  -1.3458e+36
+
+theta =
+
+   6.5767e+36   1.5131e+37   1.5131e+37
+
+theta =
+
+  -7.3943e+37  -1.7012e+38  -1.7012e+38
+
+theta =
+
+   8.3135e+38   1.9127e+39   1.9127e+39
+
+theta =
+
+  -9.3471e+39  -2.1504e+40  -2.1504e+40
+
+theta =
+
+   1.0509e+41   2.4178e+41   2.4178e+41
+
+theta =
+
+  -1.1816e+42  -2.7184e+42  -2.7184e+42
+
+theta =
+
+   1.3284e+43   3.0563e+43   3.0563e+43
+
+theta =
+
+  -1.4936e+44  -3.4362e+44  -3.4362e+44
+
+theta =
+
+   1.6793e+45   3.8634e+45   3.8634e+45
+
+theta =
+
+  -1.8880e+46  -4.3437e+46  -4.3437e+46
+
+theta =
+
+   2.1227e+47   4.8837e+47   4.8837e+47
+
+theta =
+
+  -2.3866e+48  -5.4909e+48  -5.4909e+48
+
+theta =
+
+   2.6833e+49   6.1735e+49   6.1735e+49
+
+theta =
+
+  -3.0169e+50  -6.9409e+50  -6.9409e+50
+
+theta =
+
+   3.3920e+51   7.8038e+51   7.8038e+51
+
+theta =
+
+  -3.8137e+52  -8.7740e+52  -8.7740e+52
+
+theta =
+
+   4.2878e+53   9.8647e+53   9.8647e+53
+
+theta =
+
+  -4.8208e+54  -1.1091e+55  -1.1091e+55
+
+theta =
+
+   5.4201e+55   1.2470e+56   1.2470e+56
+
+theta =
+
+  -6.0940e+56  -1.4020e+57  -1.4020e+57
+
+theta =
+
+   6.8516e+57   1.5763e+58   1.5763e+58
+
+theta =
+
+  -7.7033e+58  -1.7723e+59  -1.7723e+59
+
+theta =
+
+   8.6610e+59   1.9926e+60   1.9926e+60
+
+theta =
+
+  -9.7377e+60  -2.2403e+61  -2.2403e+61
+
+theta =
+
+   1.0948e+62   2.5188e+62   2.5188e+62
+
+theta =
+
+  -1.2309e+63  -2.8320e+63  -2.8320e+63
+
+theta =
+
+   1.3840e+64   3.1840e+64   3.1840e+64
+
+theta =
+
+  -1.5560e+65  -3.5799e+65  -3.5799e+65
+
+theta =
+
+   1.7495e+66   4.0249e+66   4.0249e+66
+
+theta =
+
+  -1.9669e+67  -4.5253e+67  -4.5253e+67
+
+theta =
+
+   2.2115e+68   5.0878e+68   5.0878e+68
+
+theta =
+
+  -2.4864e+69  -5.7203e+69  -5.7203e+69
+
+theta =
+
+   2.7955e+70   6.4315e+70   6.4315e+70
+
+theta =
+
+  -3.1430e+71  -7.2310e+71  -7.2310e+71
+
+theta =
+
+   3.5338e+72   8.1300e+72   8.1300e+72
+
+theta =
+
+  -3.9731e+73  -9.1407e+73  -9.1407e+73
+
+theta =
+
+   4.4670e+74   1.0277e+75   1.0277e+75
+
+theta =
+
+  -5.0223e+75  -1.1555e+76  -1.1555e+76
+
+theta =
+
+   5.6467e+76   1.2991e+77   1.2991e+77
+
+theta =
+
+  -6.3487e+77  -1.4606e+78  -1.4606e+78
+
+theta =
+
+   7.1379e+78   1.6422e+79   1.6422e+79
+
+theta =
+
+  -8.0253e+79  -1.8463e+80  -1.8463e+80
+
+theta =
+
+   9.0230e+80   2.0759e+81   2.0759e+81
+
+theta =
+
+  -1.0145e+82  -2.3339e+82  -2.3339e+82
+
+theta =
+
+   1.1406e+83   2.6241e+83   2.6241e+83
+
+theta =
+
+  -1.2824e+84  -2.9503e+84  -2.9503e+84
+
+theta =
+
+   1.4418e+85   3.3171e+85   3.3171e+85
+
+theta =
+
+  -1.6210e+86  -3.7295e+86  -3.7295e+86
+
+theta =
+
+   1.8226e+87   4.1931e+87   4.1931e+87
+
+theta =
+
+  -2.0491e+88  -4.7144e+88  -4.7144e+88
+
+theta =
+
+   2.3039e+89   5.3005e+89   5.3005e+89
+
+theta =
+
+  -2.5903e+90  -5.9594e+90  -5.9594e+90
+
+theta =
+
+   2.9123e+91   6.7003e+91   6.7003e+91
+
+theta =
+
+  -3.2744e+92  -7.5332e+92  -7.5332e+92
+
+theta =
+
+   3.6814e+93   8.4698e+93   8.4698e+93
+
+theta =
+
+  -4.1391e+94  -9.5227e+94  -9.5227e+94
+
+theta =
+
+   4.6537e+95   1.0707e+96   1.0707e+96
+
+theta =
+
+  -5.2322e+96  -1.2038e+97  -1.2038e+97
+
+theta =
+
+   5.8827e+97   1.3534e+98   1.3534e+98
+
+theta =
+
+  -6.6140e+98  -1.5217e+99  -1.5217e+99
+
+theta =
+
+    7.4362e+99   1.7108e+100   1.7108e+100
+
+theta =
+
+  -8.3607e+100  -1.9235e+101  -1.9235e+101
+
+theta =
+
+   9.4001e+101   2.1626e+102   2.1626e+102
+
+theta =
+
+  -1.0569e+103  -2.4315e+103  -2.4315e+103
+
+theta =
+
+   1.1883e+104   2.7338e+104   2.7338e+104
+
+theta =
+
+  -1.3360e+105  -3.0736e+105  -3.0736e+105
+
+theta =
+
+   1.5021e+106   3.4557e+106   3.4557e+106
+
+theta =
+
+  -1.6888e+107  -3.8853e+107  -3.8853e+107
+
+theta =
+
+   1.8987e+108   4.3684e+108   4.3684e+108
+
+theta =
+
+  -2.1348e+109  -4.9114e+109  -4.9114e+109
+
+theta =
+
+   2.4002e+110   5.5220e+110   5.5220e+110
+
+theta =
+
+  -2.6986e+111  -6.2085e+111  -6.2085e+111
+
+theta =
+
+   3.0340e+112   6.9803e+112   6.9803e+112
+
+theta =
+
+  -3.4112e+113  -7.8481e+113  -7.8481e+113
+
+theta =
+
+   3.8353e+114   8.8237e+114   8.8237e+114
+
+theta =
+
+  -4.3121e+115  -9.9207e+115  -9.9207e+115
+
+theta =
+
+   4.8482e+116   1.1154e+117   1.1154e+117
+
+theta =
+
+  -5.4509e+117  -1.2541e+118  -1.2541e+118
+
+theta =
+
+   6.1285e+118   1.4100e+119   1.4100e+119
+
+theta =
+
+  -6.8904e+119  -1.5853e+120  -1.5853e+120
+
+theta =
+
+   7.7470e+120   1.7823e+121   1.7823e+121
+
+theta =
+
+  -8.7101e+121  -2.0039e+122  -2.0039e+122
+
+theta =
+
+   9.7929e+122   2.2530e+123   2.2530e+123
+
+theta =
+
+  -1.1010e+124  -2.5331e+124  -2.5331e+124
+
+theta =
+
+   1.2379e+125   2.8480e+125   2.8480e+125
+
+theta =
+
+  -1.3918e+126  -3.2021e+126  -3.2021e+126
+
+theta =
+
+   1.5648e+127   3.6002e+127   3.6002e+127
+
+theta =
+
+  -1.7594e+128  -4.0477e+128  -4.0477e+128
+
+theta =
+
+   1.9781e+129   4.5509e+129   4.5509e+129
+
+theta =
+
+  -2.2240e+130  -5.1167e+130  -5.1167e+130
+
+theta =
+
+   2.5005e+131   5.7528e+131   5.7528e+131
+
+theta =
+
+  -2.8113e+132  -6.4680e+132  -6.4680e+132
+
+theta =
+
+   3.1608e+133   7.2720e+133   7.2720e+133
+
+theta =
+
+  -3.5538e+134  -8.1761e+134  -8.1761e+134
+
+theta =
+
+   3.9956e+135   9.1925e+135   9.1925e+135
+
+theta =
+
+  -4.4923e+136  -1.0335e+137  -1.0335e+137
+
+theta =
+
+   5.0508e+137   1.1620e+138   1.1620e+138
+
+theta =
+
+  -5.6787e+138  -1.3065e+139  -1.3065e+139
+
+theta =
+
+   6.3847e+139   1.4689e+140   1.4689e+140
+
+theta =
+
+  -7.1784e+140  -1.6515e+141  -1.6515e+141
+
+theta =
+
+   8.0708e+141   1.8568e+142   1.8568e+142
+
+theta =
+
+  -9.0741e+142  -2.0877e+143  -2.0877e+143
+
+theta =
+
+   1.0202e+144   2.3472e+144   2.3472e+144
+
+theta =
+
+  -1.1471e+145  -2.6390e+145  -2.6390e+145
+
+theta =
+
+   1.2897e+146   2.9671e+146   2.9671e+146
+
+theta =
+
+  -1.4500e+147  -3.3359e+147  -3.3359e+147
+
+theta =
+
+   1.6302e+148   3.7506e+148   3.7506e+148
+
+theta =
+
+  -1.8329e+149  -4.2169e+149  -4.2169e+149
+
+theta =
+
+   2.0608e+150   4.7411e+150   4.7411e+150
+
+theta =
+
+  -2.3170e+151  -5.3305e+151  -5.3305e+151
+
+theta =
+
+   2.6050e+152   5.9932e+152   5.9932e+152
+
+theta =
+
+  -2.9288e+153  -6.7383e+153  -6.7383e+153
+
+theta =
+
+   3.2930e+154   7.5760e+154   7.5760e+154
+
+theta =
+
+  -3.7023e+155  -8.5178e+155  -8.5178e+155
+
+theta =
+
+   4.1626e+156   9.5767e+156   9.5767e+156
+
+theta =
+
+  -4.6801e+157  -1.0767e+158  -1.0767e+158
+
+theta =
+
+   5.2619e+158   1.2106e+159   1.2106e+159
+
+theta =
+
+  -5.9160e+159  -1.3611e+160  -1.3611e+160
+
+theta =
+
+   6.6515e+160   1.5303e+161   1.5303e+161
+
+theta =
+
+  -7.4784e+161  -1.7205e+162  -1.7205e+162
+
+theta =
+
+   8.4081e+162   1.9344e+163   1.9344e+163
+
+theta =
+
+  -9.4534e+163  -2.1749e+164  -2.1749e+164
+
+theta =
+
+   1.0629e+165   2.4453e+165   2.4453e+165
+
+theta =
+
+  -1.1950e+166  -2.7493e+166  -2.7493e+166
+
+theta =
+
+   1.3436e+167   3.0911e+167   3.0911e+167
+
+theta =
+
+  -1.5106e+168  -3.4753e+168  -3.4753e+168
+
+theta =
+
+   1.6984e+169   3.9074e+169   3.9074e+169
+
+theta =
+
+  -1.9095e+170  -4.3931e+170  -4.3931e+170
+
+theta =
+
+   2.1469e+171   4.9393e+171   4.9393e+171
+
+theta =
+
+  -2.4138e+172  -5.5533e+172  -5.5533e+172
+
+theta =
+
+   2.7139e+173   6.2437e+173   6.2437e+173
+
+theta =
+
+  -3.0513e+174  -7.0199e+174  -7.0199e+174
+
+theta =
+
+   3.4306e+175   7.8926e+175   7.8926e+175
+
+theta =
+
+  -3.8571e+176  -8.8738e+176  -8.8738e+176
+
+theta =
+
+   4.3366e+177   9.9770e+177   9.9770e+177
+
+theta =
+
+  -4.8757e+178  -1.1217e+179  -1.1217e+179
+
+theta =
+
+   5.4818e+179   1.2612e+180   1.2612e+180
+
+theta =
+
+  -6.1633e+180  -1.4180e+181  -1.4180e+181
+
+theta =
+
+   6.9295e+181   1.5942e+182   1.5942e+182
+
+theta =
+
+  -7.7910e+182  -1.7924e+183  -1.7924e+183
+
+theta =
+
+   8.7595e+183   2.0153e+184   2.0153e+184
+
+theta =
+
+  -9.8485e+184  -2.2658e+185  -2.2658e+185
+
+theta =
+
+   1.1073e+186   2.5475e+186   2.5475e+186
+
+theta =
+
+  -1.2449e+187  -2.8642e+187  -2.8642e+187
+
+theta =
+
+   1.3997e+188   3.2202e+188   3.2202e+188
+
+theta =
+
+  -1.5737e+189  -3.6206e+189  -3.6206e+189
+
+theta =
+
+   1.7694e+190   4.0707e+190   4.0707e+190
+
+theta =
+
+  -1.9893e+191  -4.5767e+191  -4.5767e+191
+
+theta =
+
+   2.2366e+192   5.1457e+192   5.1457e+192
+
+theta =
+
+  -2.5147e+193  -5.7854e+193  -5.7854e+193
+
+theta =
+
+   2.8273e+194   6.5046e+194   6.5046e+194
+
+theta =
+
+  -3.1788e+195  -7.3133e+195  -7.3133e+195
+
+theta =
+
+   3.5740e+196   8.2225e+196   8.2225e+196
+
+theta =
+
+  -4.0183e+197  -9.2447e+197  -9.2447e+197
+
+theta =
+
+   4.5178e+198   1.0394e+199   1.0394e+199
+
+theta =
+
+  -5.0794e+199  -1.1686e+200  -1.1686e+200
+
+theta =
+
+   5.7109e+200   1.3139e+201   1.3139e+201
+
+theta =
+
+  -6.4209e+201  -1.4772e+202  -1.4772e+202
+
+theta =
+
+   7.2191e+202   1.6609e+203   1.6609e+203
+
+theta =
+
+  -8.1166e+203  -1.8673e+204  -1.8673e+204
+
+theta =
+
+   9.1256e+204   2.0995e+205   2.0995e+205
+
+theta =
+
+  -1.0260e+206  -2.3605e+206  -2.3605e+206
+
+theta =
+
+   1.1536e+207   2.6539e+207   2.6539e+207
+
+theta =
+
+  -1.2970e+208  -2.9839e+208  -2.9839e+208
+
+theta =
+
+   1.4582e+209   3.3548e+209   3.3548e+209
+
+theta =
+
+  -1.6395e+210  -3.7719e+210  -3.7719e+210
+
+theta =
+
+   1.8433e+211   4.2408e+211   4.2408e+211
+
+theta =
+
+  -2.0725e+212  -4.7680e+212  -4.7680e+212
+
+theta =
+
+   2.3301e+213   5.3608e+213   5.3608e+213
+
+theta =
+
+  -2.6198e+214  -6.0272e+214  -6.0272e+214
+
+theta =
+
+   2.9455e+215   6.7765e+215   6.7765e+215
+
+theta =
+
+  -3.3116e+216  -7.6189e+216  -7.6189e+216
+
+theta =
+
+   3.7233e+217   8.5661e+217   8.5661e+217
+
+theta =
+
+  -4.1862e+218  -9.6310e+218  -9.6310e+218
+
+theta =
+
+   4.7066e+219   1.0828e+220   1.0828e+220
+
+theta =
+
+  -5.2917e+220  -1.2174e+221  -1.2174e+221
+
+theta =
+
+   5.9496e+221   1.3688e+222   1.3688e+222
+
+theta =
+
+  -6.6892e+222  -1.5390e+223  -1.5390e+223
+
+theta =
+
+   7.5208e+223   1.7303e+224   1.7303e+224
+
+theta =
+
+  -8.4558e+224  -1.9454e+225  -1.9454e+225
+
+theta =
+
+   9.5070e+225   2.1872e+226   2.1872e+226
+
+theta =
+
+  -1.0689e+227  -2.4592e+227  -2.4592e+227
+
+theta =
+
+   1.2018e+228   2.7649e+228   2.7649e+228
+
+theta =
+
+  -1.3512e+229  -3.1086e+229  -3.1086e+229
+
+theta =
+
+   1.5191e+230   3.4950e+230   3.4950e+230
+
+theta =
+
+  -1.7080e+231  -3.9295e+231  -3.9295e+231
+
+theta =
+
+   1.9203e+232   4.4180e+232   4.4180e+232
+
+theta =
+
+  -2.1591e+233  -4.9673e+233  -4.9673e+233
+
+theta =
+
+   2.4275e+234   5.5848e+234   5.5848e+234
+
+theta =
+
+  -2.7293e+235  -6.2791e+235  -6.2791e+235
+
+theta =
+
+   3.0686e+236   7.0597e+236   7.0597e+236
+
+theta =
+
+  -3.4500e+237  -7.9374e+237  -7.9374e+237
+
+theta =
+
+   3.8789e+238   8.9241e+238   8.9241e+238
+
+theta =
+
+  -4.3612e+239  -1.0034e+240  -1.0034e+240
+
+theta =
+
+   4.9033e+240   1.1281e+241   1.1281e+241
+
+theta =
+
+  -5.5129e+241  -1.2683e+242  -1.2683e+242
+
+theta =
+
+   6.1982e+242   1.4260e+243   1.4260e+243
+
+theta =
+
+  -6.9688e+243  -1.6033e+244  -1.6033e+244
+
+theta =
+
+   7.8351e+244   1.8026e+245   1.8026e+245
+
+theta =
+
+  -8.8092e+245  -2.0267e+246  -2.0267e+246
+
+theta =
+
+   9.9043e+246   2.2787e+247   2.2787e+247
+
+theta =
+
+  -1.1136e+248  -2.5619e+248  -2.5619e+248
+
+theta =
+
+   1.2520e+249   2.8804e+249   2.8804e+249
+
+theta =
+
+  -1.4076e+250  -3.2385e+250  -3.2385e+250
+
+theta =
+
+   1.5826e+251   3.6411e+251   3.6411e+251
+
+theta =
+
+  -1.7794e+252  -4.0938e+252  -4.0938e+252
+
+theta =
+
+   2.0006e+253   4.6027e+253   4.6027e+253
+
+theta =
+
+  -2.2493e+254  -5.1749e+254  -5.1749e+254
+
+theta =
+
+   2.5289e+255   5.8182e+255   5.8182e+255
+
+theta =
+
+  -2.8433e+256  -6.5415e+256  -6.5415e+256
+
+theta =
+
+   3.1968e+257   7.3548e+257   7.3548e+257
+
+theta =
+
+  -3.5942e+258  -8.2691e+258  -8.2691e+258
+
+theta =
+
+   4.0410e+259   9.2971e+259   9.2971e+259
+
+theta =
+
+  -4.5434e+260  -1.0453e+261  -1.0453e+261
+
+theta =
+
+   5.1082e+261   1.1752e+262   1.1752e+262
+
+theta =
+
+  -5.7433e+262  -1.3213e+263  -1.3213e+263
+
+theta =
+
+   6.4573e+263   1.4856e+264   1.4856e+264
+
+theta =
+
+  -7.2600e+264  -1.6703e+265  -1.6703e+265
+
+theta =
+
+   8.1626e+265   1.8779e+266   1.8779e+266
+
+theta =
+
+  -9.1774e+266  -2.1114e+267  -2.1114e+267
+
+theta =
+
+   1.0318e+268   2.3739e+268   2.3739e+268
+
+theta =
+
+  -1.1601e+269  -2.6690e+269  -2.6690e+269
+
+theta =
+
+   1.3043e+270   3.0008e+270   3.0008e+270
+
+theta =
+
+  -1.4665e+271  -3.3739e+271  -3.3739e+271
+
+theta =
+
+   1.6488e+272   3.7933e+272   3.7933e+272
+
+theta =
+
+  -1.8538e+273  -4.2649e+273  -4.2649e+273
+
+theta =
+
+   2.0842e+274   4.7951e+274   4.7951e+274
+
+theta =
+
+  -2.3433e+275  -5.3912e+275  -5.3912e+275
+
+theta =
+
+   2.6346e+276   6.0614e+276   6.0614e+276
+
+theta =
+
+  -2.9622e+277  -6.8149e+277  -6.8149e+277
+
+theta =
+
+   3.3304e+278   7.6621e+278   7.6621e+278
+
+theta =
+
+  -3.7444e+279  -8.6147e+279  -8.6147e+279
+
+theta =
+
+   4.2099e+280   9.6856e+280   9.6856e+280
+
+theta =
+
+  -4.7333e+281  -1.0890e+282  -1.0890e+282
+
+theta =
+
+   5.3217e+282   1.2244e+283   1.2244e+283
+
+theta =
+
+  -5.9833e+283  -1.3766e+284  -1.3766e+284
+
+theta =
+
+   6.7272e+284   1.5477e+285   1.5477e+285
+
+theta =
+
+  -7.5635e+285  -1.7401e+286  -1.7401e+286
+
+theta =
+
+   8.5037e+286   1.9564e+287   1.9564e+287
+
+theta =
+
+  -9.5609e+287  -2.1996e+288  -2.1996e+288
+
+theta =
+
+   1.0749e+289   2.4731e+289   2.4731e+289
+
+theta =
+
+  -1.2086e+290  -2.7805e+290  -2.7805e+290
+
+theta =
+
+   1.3588e+291   3.1262e+291   3.1262e+291
+
+theta =
+
+  -1.5278e+292  -3.5149e+292  -3.5149e+292
+
+theta =
+
+   1.7177e+293   3.9518e+293   3.9518e+293
+
+theta =
+
+  -1.9312e+294  -4.4431e+294  -4.4431e+294
+
+theta =
+
+   2.1713e+295   4.9955e+295   4.9955e+295
+
+theta =
+
+  -2.4412e+296  -5.6165e+296  -5.6165e+296
+
+theta =
+
+   2.7447e+297   6.3147e+297   6.3147e+297
+
+theta =
+
+  -3.0860e+298  -7.0997e+298  -7.0997e+298
+
+theta =
+
+   3.4696e+299   7.9824e+299   7.9824e+299
+
+theta =
+
+  -3.9009e+300  -8.9747e+300  -8.9747e+300
+
+theta =
+
+   4.3859e+301   1.0090e+302   1.0090e+302
+
+theta =
+
+  -4.9311e+302  -1.1345e+303  -1.1345e+303
+
+theta =
+
+   5.5442e+303   1.2755e+304   1.2755e+304
+
+theta =
+
+  -6.2334e+304  -1.4341e+305  -1.4341e+305
+
+theta =
+
+   7.0083e+305   1.6124e+306   1.6124e+306
+
+theta =
+
+  -7.8796e+306  -1.8128e+307  -1.8128e+307
+
+theta =
+
+   8.8591e+307           Inf           Inf
+
+theta =
+
+  -Inf   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+theta =
+
+   NaN   NaN   NaN
+
+G =
+
+   NaN   NaN   NaN
+
+ans =
+
+   NaN   NaN   NaN
+
+>> theta = [0 0 0]
+theta =
+
+   0   0   0
+
+>> theta = theta - (0.1 / 3) * sum((theta * X(:,:)' - y') * X(:, :))
+theta =
+
+   1   1   1
+
+>> theta = theta - (0.1 / 3) * sum((theta * X(:,:)' - y') * X(:, :))
+theta =
+
+  -0.26667  -0.26667  -0.26667
+
+>> theta = theta - (0.1 / 3) * sum((theta * X(:,:)' - y') * X(:, :))
+theta =
+
+   1.3378   1.3378   1.3378
+
+>> theta = theta - (0.1 / 3) * sum((theta * X(:,:)' - y') * X(:, :))
+theta =
+
+  -0.69452  -0.69452  -0.69452
+
+>> theta = theta - (0.1 / 3) * sum((theta * X(:,:)' - y') * X(:, :))
+theta =
+
+   1.8797   1.8797   1.8797
+
+>> theta = theta - (0.1 / 3) * sum((theta * X(:,:)' - y') * X(:, :))
+theta =
+
+  -1.3810  -1.3810  -1.3810
+
+>> size(X)
+ans =
+
+   3   3
+
+>> length(X)
+ans =  3
+>> i = 1;
+>> while i <= length(X),
+i = i + 1
+
+end
+i =  2
+i =  3
+i =  4
+>> s = 0
+s = 0
+>> while i <=length(X) 
+while i <= length(X), 
+    s += (theta * X(i,:)' - y(i)) * X(i,1)
+    i += 1;
+end
+
+
+end
+>> s
+s = 0
+>> X
+X =
+
+   1   1   2
+   1   2   1
+   1   3   2
+
+>> X(1,:)
+ans =
+
+   1   1   2
+
+>> v = X(1,:)
+v =
+
+   1   1   2
+
+>> size(v)
+ans =
+
+   1   3
+
+>> v = [0 0 0]
+v =
+
+   0   0   0
+
+>> size(v)
+ans =
+
+   1   3
+
+>> v = [1 1 1]
+v =
+
+   1   1   1
+
+>> size(X(1,:))
+ans =
+
+   1   3
+
+>> v = [0;0;0]
+v =
+
+   0
+   0
+   0
+
+>> v = X(1,:)
+v =
+
+   1   1   2
+
+>> size(v)
+ans =
+
+   1   3
+
+>> v = [0;0;0]
+v =
+
+   0
+   0
+   0
+
+>> v(1,:) = X(1,:)
+error: A(I,J,...) = X: dimensions mismatch
+>> v(1,:)
+ans = 0
+>> v(:,1)
+ans =
+
+   0
+   0
+   0
+
+>> v(:,2)
+error: A(I,J): column index out of bounds; value 2 out of bound 1
+>> v(:,1)
+ans =
+
+   0
+   0
+   0
+
+>> v(:,1) = X(1,:)
+v =
+
+   1
+   1
+   2
+
+>> X(1,:)
+ans =
+
+   1   1   2
+
+>> theta
+theta =
+
+  -1.3810  -1.3810  -1.3810
+
+>> tehta = [0;0;0]
+tehta =
+
+   0
+   0
+   0
+
+>> theta = [0;0;0]
+theta =
+
+   0
+   0
+   0
+
+>> theta = X(1,:)
+theta =
+
+   1   1   2
+
+>> tehta = [0;0;0]
+tehta =
+
+   0
+   0
+   0
+
+>> theta = [0;0;0]
+theta =
+
+   0
+   0
+   0
+
+>> theta(:,1) = X(1,:) 
+theta =
+
+   1
+   1
+   2
+
+>> X(1,:) 
+ans =
+
+   1   1   2
+
+>> tehta = [0;0;0]
+tehta =
+
+   0
+   0
+   0
+
+>> theta = [0;0;0]
+theta =
+
+   0
+   0
+   0
+
+>> theta = theta - theta' X
+parse error:
+
+  syntax error
+
+>>> theta = theta - theta' X
+                          ^
+
+>> theta = theta - theta'*  X
+theta =
+
+   0   0   0
+   0   0   0
+   0   0   0
+
+>> theta = [0;0;0]
+theta =
+
+   0
+   0
+   0
+
+>> theta' * X(1,:)
+error: operator *: nonconformant arguments (op1 is 1x3, op2 is 1x3)
+>> theta' * X(1,:)'
+ans = 0
+>> theta * X(1,:)'
+error: operator *: nonconformant arguments (op1 is 3x1, op2 is 3x1)
+>> theta * X(1,:)
+ans =
+
+   0   0   0
+   0   0   0
+   0   0   0
+
+>> theta 
+theta =
+
+   0
+   0
+   0
+
+>> X(1,:)'
+ans =
+
+   1
+   1
+   2
+
+>> X(2,:)'
+ans =
+
+   1
+   2
+   1
+
+>> X
+X =
+
+   1   1   2
+   1   2   1
+   1   3   2
+
+>> theta ' * X(1,:)
+error: operator *: nonconformant arguments (op1 is 1x3, op2 is 1x3)
+>> theta ' * X(1,:)'
+ans = 0
+>> theta 
+theta =
+
+   0
+   0
+   0
+
+>> theta = [0 0 0]
+theta =
+
+   0   0   0
+
+>> theta ' * X(1,:)'
+error: operator *: nonconformant arguments (op1 is 3x1, op2 is 3x1)
+>> theta ' * X(1,:)
+ans =
+
+   0   0   0
+   0   0   0
+   0   0   0
+
+>> theta  * X(1,:)'
+ans = 0
+>> theta = [1 1 1]
+theta =
+
+   1   1   1
+
+>> theta  * X(1,:)'
+ans =  4
+>> X(1,:)'
+ans =
+
+   1
+   1
+   2
+
+>> [1 1 1] * X(1,:)
+error: operator *: nonconformant arguments (op1 is 1x3, op2 is 1x3)
+>> [1 1 1] * X(1,:)'
+ans =  4
+>> [1;1;1]' * X(1, :) 
+error: operator *: nonconformant arguments (op1 is 1x3, op2 is 1x3)
+>> [1;1;1]' * X(1, :)' 
+ans =  4
+>> X
+X =
+
+   1   1   2
+   1   2   1
+   1   3   2
+
+>> size(X(1,:))
+ans =
+
+   1   3
+
+>> theta = [1 1 1]
+theta =
+
+   1   1   1
+
+>> theta  * X(1,:)'
+ans =  4
+>> size(x(1,:)')
+error: 'x' undefined near line 1 column 6
+error: evaluating argument list element number 1
+>> size(X(1,:)')
+ans =
+
+   3   1
+
+>> size(X(1,:)')
+ans =
+
+   3   1
+
+>> theta  * X(:,:)'
+ans =
+
+   4   4   6
+
+>> X
+X =
+
+   1   1   2
+   1   2   1
+   1   3   2
+
+>> theta
+theta =
+
+   1   1   1
+
+>> size(theta  * X(:,:)')
+ans =
+
+   1   3
+
+>> y
+y =
+
+   1
+   2
+   3
+
+>> size(y)
+ans =
+
+   3   1
+
+>> theta  * X(1,:)'
+ans =  4
+>> theta  * X(:,:)'
+ans =
+
+   4   4   6
+
+>> theta  * X(:,:)' - y
+ans =
+
+   3   3   5
+   2   2   4
+   1   1   3
+
+>> theta  * X(:,:)' - y'
+ans =
+
+   3   2   3
+
+>> (theta  * X(:,:)' - y') * X
+ans =
+
+    8   16   14
+
+>> X
+X =
+
+   1   1   2
+   1   2   1
+   1   3   2
+
+>> (theta  * X(:,:)' - y') * X'
+ans =
+
+   11   10   15
+
+>> x'
+error: 'x' undefined near line 1 column 1
+>> X'
+ans =
+
+   1   1   1
+   1   2   3
+   2   1   2
+
+>> theta 
+theta =
+
+   1   1   1
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.73333   0.46667   0.53333
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.67778   0.39111   0.42889
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.66030   0.39674   0.39022
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.64988   0.41613   0.36419
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.64097   0.43723   0.34125
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.63255   0.45791   0.31963
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.62444   0.47783   0.29901
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.61660   0.49695   0.27929
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.60900   0.51529   0.26042
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.60164   0.53288   0.24237
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.59450   0.54975   0.22509
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.58759   0.56594   0.20856
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.58088   0.58146   0.19275
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.57437   0.59635   0.17762
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.56806   0.61064   0.16316
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.56193   0.62434   0.14932
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.55599   0.63749   0.13609
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.55021   0.65010   0.12343
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.54460   0.66220   0.11133
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.539140   0.673811   0.099767
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.533836   0.684949   0.088710
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.528677   0.695635   0.078142
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.523659   0.705890   0.068041
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.518775   0.715729   0.058389
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.514020   0.725171   0.049167
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.509390   0.734231   0.040356
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.504878   0.742927   0.031941
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.500482   0.751272   0.023903
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.496195   0.759281   0.016228
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.4920149   0.7669680   0.0089002
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.4879364   0.7743466   0.0019050
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.4839559   0.7814292  -0.0047714
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.480070   0.788228  -0.011142
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.476274   0.794755  -0.017221
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.472566   0.801022  -0.023019
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.468941   0.807038  -0.028548
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.465398   0.812815  -0.033820
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.461932   0.818361  -0.038845
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.458540   0.823688  -0.043634
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.455221   0.828804  -0.048196
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.451971   0.833716  -0.052542
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.448788   0.838435  -0.056680
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.445668   0.842968  -0.060619
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.442611   0.847322  -0.064367
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.439613   0.851505  -0.067933
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.436673   0.855525  -0.071324
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.433788   0.859386  -0.074547
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.430957   0.863098  -0.077610
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.428177   0.866664  -0.080519
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.425446   0.870092  -0.083281
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.422763   0.873387  -0.085901
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.420126   0.876554  -0.088387
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.417534   0.879599  -0.090743
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.414985   0.882527  -0.092976
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.412477   0.885343  -0.095090
+
+>> theta = theta - (0.1 / 3) * ((theta  * X(:,:)' - y') * X)
+theta =
+
+   0.410009   0.888051  -0.097090
+
+>> gradient_descent(A, y, theta, 0.1, 0.001)
+error: 'A' undefined near line 1 column 18
+error: evaluating argument list element number 1
+>> gradient_descent(X, y, theta, 0.1, 0.001)
+ans =
+
+   0.410009   0.888051  -0.097090
+
+>> gradient_descent(X, y, theta, 0.01, 0.001)
+ans =
+
+   0.410009   0.888051  -0.097090
+
+>> gradient_descent(X, y, theta, 0.0001, 0.00001)
+theta =
+
+   0.410008   0.888051  -0.097090
+
+ans =
+
+   0.410008   0.888051  -0.097090
+
+>> gradient_descent(X, y, theta, 0.000001, 0.0000001)
+theta =
+
+   0.410009   0.888051  -0.097090
+
+ans =
+
+   0.410009   0.888051  -0.097090
+
+>> t = [1:0.01:3]
+t =
+
+ Columns 1 through 14:
+
+   1.0000   1.0100   1.0200   1.0300   1.0400   1.0500   1.0600   1.0700   1.0800   1.0900   1.1000   1.1100   1.1200   1.1300
+
+ Columns 15 through 28:
+
+   1.1400   1.1500   1.1600   1.1700   1.1800   1.1900   1.2000   1.2100   1.2200   1.2300   1.2400   1.2500   1.2600   1.2700
+
+ Columns 29 through 42:
+
+   1.2800   1.2900   1.3000   1.3100   1.3200   1.3300   1.3400   1.3500   1.3600   1.3700   1.3800   1.3900   1.4000   1.4100
+
+ Columns 43 through 56:
+
+   1.4200   1.4300   1.4400   1.4500   1.4600   1.4700   1.4800   1.4900   1.5000   1.5100   1.5200   1.5300   1.5400   1.5500
+
+ Columns 57 through 70:
+
+   1.5600   1.5700   1.5800   1.5900   1.6000   1.6100   1.6200   1.6300   1.6400   1.6500   1.6600   1.6700   1.6800   1.6900
+
+ Columns 71 through 84:
+
+   1.7000   1.7100   1.7200   1.7300   1.7400   1.7500   1.7600   1.7700   1.7800   1.7900   1.8000   1.8100   1.8200   1.8300
+
+ Columns 85 through 98:
+
+   1.8400   1.8500   1.8600   1.8700   1.8800   1.8900   1.9000   1.9100   1.9200   1.9300   1.9400   1.9500   1.9600   1.9700
+
+ Columns 99 through 112:
+
+   1.9800   1.9900   2.0000   2.0100   2.0200   2.0300   2.0400   2.0500   2.0600   2.0700   2.0800   2.0900   2.1000   2.1100
+
+ Columns 113 through 126:
+
+   2.1200   2.1300   2.1400   2.1500   2.1600   2.1700   2.1800   2.1900   2.2000   2.2100   2.2200   2.2300   2.2400   2.2500
+
+ Columns 127 through 140:
+
+   2.2600   2.2700   2.2800   2.2900   2.3000   2.3100   2.3200   2.3300   2.3400   2.3500   2.3600   2.3700   2.3800   2.3900
+
+ Columns 141 through 154:
+
+   2.4000   2.4100   2.4200   2.4300   2.4400   2.4500   2.4600   2.4700   2.4800   2.4900   2.5000   2.5100   2.5200   2.5300
+
+ Columns 155 through 168:
+
+   2.5400   2.5500   2.5600   2.5700   2.5800   2.5900   2.6000   2.6100   2.6200   2.6300   2.6400   2.6500   2.6600   2.6700
+
+ Columns 169 through 182:
+
+   2.6800   2.6900   2.7000   2.7100   2.7200   2.7300   2.7400   2.7500   2.7600   2.7700   2.7800   2.7900   2.8000   2.8100
+
+ Columns 183 through 196:
+
+   2.8200   2.8300   2.8400   2.8500   2.8600   2.8700   2.8800   2.8900   2.9000   2.9100   2.9200   2.9300   2.9400   2.9500
+
+ Columns 197 through 201:
+
+   2.9600   2.9700   2.9800   2.9900   3.0000
+
+>> t = [1:0.01:3];
+>> Y = 0.41 + 0.88 * t 
+Y =
+
+ Columns 1 through 14:
+
+   1.2900   1.2988   1.3076   1.3164   1.3252   1.3340   1.3428   1.3516   1.3604   1.3692   1.3780   1.3868   1.3956   1.4044
+
+ Columns 15 through 28:
+
+   1.4132   1.4220   1.4308   1.4396   1.4484   1.4572   1.4660   1.4748   1.4836   1.4924   1.5012   1.5100   1.5188   1.5276
+
+ Columns 29 through 42:
+
+   1.5364   1.5452   1.5540   1.5628   1.5716   1.5804   1.5892   1.5980   1.6068   1.6156   1.6244   1.6332   1.6420   1.6508
+
+ Columns 43 through 56:
+
+   1.6596   1.6684   1.6772   1.6860   1.6948   1.7036   1.7124   1.7212   1.7300   1.7388   1.7476   1.7564   1.7652   1.7740
+
+ Columns 57 through 70:
+
+   1.7828   1.7916   1.8004   1.8092   1.8180   1.8268   1.8356   1.8444   1.8532   1.8620   1.8708   1.8796   1.8884   1.8972
+
+ Columns 71 through 84:
+
+   1.9060   1.9148   1.9236   1.9324   1.9412   1.9500   1.9588   1.9676   1.9764   1.9852   1.9940   2.0028   2.0116   2.0204
+
+ Columns 85 through 98:
+
+   2.0292   2.0380   2.0468   2.0556   2.0644   2.0732   2.0820   2.0908   2.0996   2.1084   2.1172   2.1260   2.1348   2.1436
+
+ Columns 99 through 112:
+
+   2.1524   2.1612   2.1700   2.1788   2.1876   2.1964   2.2052   2.2140   2.2228   2.2316   2.2404   2.2492   2.2580   2.2668
+
+ Columns 113 through 126:
+
+   2.2756   2.2844   2.2932   2.3020   2.3108   2.3196   2.3284   2.3372   2.3460   2.3548   2.3636   2.3724   2.3812   2.3900
+
+ Columns 127 through 140:
+
+   2.3988   2.4076   2.4164   2.4252   2.4340   2.4428   2.4516   2.4604   2.4692   2.4780   2.4868   2.4956   2.5044   2.5132
+
+ Columns 141 through 154:
+
+   2.5220   2.5308   2.5396   2.5484   2.5572   2.5660   2.5748   2.5836   2.5924   2.6012   2.6100   2.6188   2.6276   2.6364
+
+ Columns 155 through 168:
+
+   2.6452   2.6540   2.6628   2.6716   2.6804   2.6892   2.6980   2.7068   2.7156   2.7244   2.7332   2.7420   2.7508   2.7596
+
+ Columns 169 through 182:
+
+   2.7684   2.7772   2.7860   2.7948   2.8036   2.8124   2.8212   2.8300   2.8388   2.8476   2.8564   2.8652   2.8740   2.8828
+
+ Columns 183 through 196:
+
+   2.8916   2.9004   2.9092   2.9180   2.9268   2.9356   2.9444   2.9532   2.9620   2.9708   2.9796   2.9884   2.9972   3.0060
+
+ Columns 197 through 201:
+
+   3.0148   3.0236   3.0324   3.0412   3.0500
+
