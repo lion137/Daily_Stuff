@@ -28,7 +28,7 @@ def f_go(List, s, url):
         lst3= functools.reduce(op.add, lst2, [])
         str2 = ''.join(lst3)
         List.append(str2)
-        f1 = re.finditer(str_regex3, h)
+        f1 = re.finditer(str_regex, h)
       
         l1 = []
         for tok in f1:
